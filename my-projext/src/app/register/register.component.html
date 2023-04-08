@@ -1,0 +1,97 @@
+<section class="text-center">
+	<div class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+        height: 300px;
+        "></div>
+
+	<div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+		<div class="card-body py-5 px-md-5">
+
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-8 form-body p-5">
+					<h2 class="fw-bold mb-5">Register here</h2>
+					<form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm.value)">
+						<div class="form-outline mb-4">
+							<label class="form-label" for="roll">Enter Roll Number</label>
+							<input type="text" id="roll" ngModel name="roll" class="form-control" />
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-4">
+								<div class="form-outline">
+									<label class="form-label" for="firstname">Enter First name</label>
+									<input type="text" id="firstname" ngModel name="first_name" class="form-control" />
+								</div>
+							</div>
+							<div class="col-md-6 mb-4">
+								<div class="form-outline">
+									<label class="form-label" for="lastname">Enter Last name</label>
+									<input type="text" id="lastname" ngModel name="last_name" class="form-control" />
+								</div>
+							</div>
+						</div>
+						<div class="form-outline mb-4">
+							<label class="form-label" for="email">Enter Email</label>
+							<input type="email" id="email" ngModel name="email" class="form-control" />
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-4">
+								<div class="form-outline">
+									<label class="form-label" for="pass">Enter Password</label>
+									<input type="password" id="pass" ngModel name="passwd" class="form-control" />
+								</div>
+							</div>
+							<div class="col-md-6 mb-4">
+								<div class="form-outline">
+									<label class="form-label" for="cpass">Confirm Password</label>
+									<input type="password" id="cpass" ngModel name="cpasswd" class="form-control" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-4">
+								<div class="form-outline">
+									<label class="form-label" for="pass">Enter Regulation</label>
+									<input type="text" id="regulation" ngModel name="regulation" class="form-control" />
+								</div>
+							</div>
+							<div class="col-md-6 mb-4">
+								<div class="form-outline">
+									<label class="form-label" for="cpass">Passed Out year</label>
+									<select ngModel name="batch" id="batch" class="form-control">
+										<option value="" selected>Passed Out year</option>
+										<option value="2016">2016</option>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>
+										<option value="2022">2022</option>
+										<option value="2023">2023</option>
+										<option value="2024">2024</option>
+										<option value="2025">2025</option>
+										<option value="2026">2026</option>
+										<option value="2027">2027</option>
+										<option value="2028">2028</option>
+										<option value="2029">2029</option>
+										<option value="2030">2030</option>
+									</select>
+									<!-- <input type="year" id="batch"  name="batch" class="form-control" /> -->
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary btn-block mb-4">
+							Click to Register
+						</button>
+						<hr />
+						<a href="/login">Already have an account?</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Section: Design Block -->

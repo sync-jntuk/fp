@@ -1,0 +1,46 @@
+<body>
+
+	<!-- ======= Header ======= -->
+	<app-header></app-header>
+
+	<!-- ======= Sidebar ======= -->
+	<app-sidebar></app-sidebar>
+
+	<main id="main" class="main">
+
+		<div class="pagetitle">
+			<h1>Supply Semester Applications</h1>
+		</div><!-- End Page Title -->
+
+		<section class="light">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">S.No.</th>
+						<th scope="col">{{'Roll No.'.toUpperCase()}}</th>
+						<th scope="col">{{'Year'.toUpperCase()}}</th>
+						<th scope="col">{{'Semester'.toUpperCase()}}</th>
+						<th scope="col">{{'Challana No.'.toUpperCase()}}</th>
+						<th scope="col">{{'Permit'.toUpperCase()}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let app of applications; let i = index">
+						<td scope="col">{{i + 1}}</td>
+						<td scope="col">{{app.roll}}</td>
+						<td scope="col">{{year_map(app.year)}}</td>
+						<td scope="col">{{semester_map(app.semester)}}</td>
+						<td scope="col">{{app.challana}}</td>
+						<td scope="col">
+							<button class="btn btn-primary">Approve</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main><!-- End #main -->
+
+	<!-- ======= Footer ======= -->
+	<app-footer></app-footer>
+
+</body>
