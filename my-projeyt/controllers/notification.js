@@ -9,7 +9,7 @@ export default function NotificationController() {
                 if (branch) filter.branch = branch
                 const result = await notification.find({
                     ...filter
-                }).skip(skip || 0).limit(limit || 10)
+                }).skip(skip || 0).limit(limit || 10).sort({ date_of_update: -1 })
                 return result
             } catch (e) {
                 return { ...e, errno: 404 }
@@ -33,7 +33,7 @@ export default function NotificationController() {
                 const result = await notification.deleteOne({ _id: _id })
                 return result
             } catch (e) {
-                return {...e, errno: 403 }
+                return { ...e, errno: 403 }
             }
         }
     }

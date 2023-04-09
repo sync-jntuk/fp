@@ -8,6 +8,8 @@ import student from "./routes/student.js"
 import regulation from "./routes/regulation.js"
 import notification from "./routes/notification.js"
 import admin from "./routes/admin.js"
+import payment from "./routes/payment.js"
+import fileUpload from "./routes/upload.js"
 
 
 dotenv.config()
@@ -17,6 +19,7 @@ const HOST = process.env.HOST || config.get('server.host')
 const MONGO = process.env.MONGO || config.get('mongo.url')
 app.use(cors())
 app.use(express.json())
+app.set('view engine', 'ejs')
 
 
 let count = 0
@@ -30,6 +33,8 @@ app.use('/newsfeed', newsFeed)
 app.use('/regulation', regulation)
 app.use('/notification', notification)
 app.use('/admin', admin)
+app.use('/payment', payment)
+app.use('/upload', fileUpload)
 
 mongoose.connect(MONGO)
     .then(() => {

@@ -31,5 +31,15 @@ app.route('/semester-applications')
         res.status(200).json(await adminController.getSemesterApplications(req.body))
     })
 
+app.route('/send-result')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.sendResult(req.body))
+    })
+
+app.route('/send-results')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.sendAllResults(req.body))
+    })
+
 const admin = app
 export default admin

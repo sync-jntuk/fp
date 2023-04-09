@@ -29,6 +29,10 @@ export class SidebarComponent {
 		this.router.navigateByUrl('/contact')
 	}
 
+	goToMap() {
+		this.router.navigateByUrl('/map')
+	}
+
 	goToResults() {
 		this.router.navigateByUrl('/result')
 	}
@@ -43,6 +47,10 @@ export class SidebarComponent {
 
 	goToNotifications() {
 		this.router.navigateByUrl('/notifications')
+	}
+
+	goToPayment() {
+		this.router.navigateByUrl('/payment')
 	}
 
 	goToSemesterApplication(type: String) {

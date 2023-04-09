@@ -53,26 +53,30 @@
 												Image</label>
 											<div class="col-md-8 col-lg-9">
 												<img src="{{user_data.picture}}" alt="Profile">
-												<div class="pt-2">
-													<a href="#" class="btn btn-primary btn-sm mx-1"
-														title="Upload new profile image"><i
-															class="bi bi-upload"></i></a>
-													<a href="#" class="btn btn-danger btn-sm mx-1"
-														title="Remove my profile image"><i class="bi bi-trash"></i></a>
-												</div>
+													<div class="pt-2">
+														<input type="file" #fileInput (change)="handleFileInput($event)">
+														<div class="btn btn-primary btn-sm mx-1"
+															title="Upload new profile image"><i
+																class="bi bi-upload" (click)="uploadFile()"></i></div>
+														<div class="btn btn-danger btn-sm mx-1"
+															title="Remove my profile image"><i
+																class="bi bi-trash"></i></div>
+													</div>
 											</div>
 										</div>
 										<div class="row mb-3">
 											<label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full
 												Name</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="name" ngModel type="text" class="form-control" id="fullName">
+												<input name="name" ngModel type="text" class="form-control"
+													id="fullName">
 											</div>
 										</div>
 										<div class="row mb-3">
 											<label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
 											<div class="col-md-8 col-lg-9">
-												<input name="email" ngModel type="email" class="form-control" id="Email">
+												<input name="email" ngModel type="email" class="form-control"
+													id="Email">
 											</div>
 										</div>
 										<div class="text-center">
@@ -87,7 +91,8 @@
 									<form passForm="ngForm">
 										<div class="row mb-3">
 											<label for="currentPassword"
-												class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+												class="col-md-4 col-lg-3 col-form-label">Current
+												Password</label>
 											<div class="col-md-8 col-lg-9">
 												<input name="passwd" type="password" class="form-control"
 													id="currentPassword">

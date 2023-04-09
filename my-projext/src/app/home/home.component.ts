@@ -14,6 +14,7 @@ export class HomeComponent {
 	logins: Number = 0
 	global_queries: Number = 0
 	global_logins: Number = 0
+	notifications: any = []
 	user_data: any = {}
 
 	ngOnInit(): void {
@@ -30,6 +31,14 @@ export class HomeComponent {
 			this.queries = data.queries.total
 			this.global_logins = data.global[0].value
 			this.global_queries = data.global[1].value
+		})
+		this.getNotifications()
+	}
+
+	getNotifications() {
+		this.bk.post('/notification/get', { limit: 6 }).subscribe(data => {
+			console.log(data)
+			this.notifications = data
 		})
 	}
 

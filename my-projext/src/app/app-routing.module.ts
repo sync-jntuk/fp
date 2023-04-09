@@ -9,6 +9,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { ResultsComponent } from './results/results.component';
 import { SemesterApplicationComponent } from './semester-application/semester-application.component';
+import { MapComponent } from './map/map.component';
+import { PaymentStatusComponent } from './payment.status/payment.status.component';
+import { Error404Component } from './error404/error404.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: "/home", pathMatch: "full" },
@@ -20,7 +24,11 @@ const routes: Routes = [
 	{ path: 'semesterapplication', component: SemesterApplicationComponent },
 	{ path: 'newsfeed', component: NewsfeedComponent },
 	{ path: 'notifications', component: NotificationsComponent },
-	{ path: "contact", component: ContactComponent }
+	{ path: 'contact', component: ContactComponent },
+	{ path: 'map', component: MapComponent },
+	{ path: 'payment', component: PaymentComponent },
+	{ path: 'payment-status', component: PaymentStatusComponent },
+    { path: 'error-404', component: Error404Component }
 ];
 
 @NgModule({

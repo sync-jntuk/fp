@@ -17,6 +17,10 @@ import { SemesterApplicationComponent } from './semester-application/semester-ap
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ContactComponent } from './contact/contact.component';
+import { MapComponent } from './map/map.component';
+import { PaymentStatusComponent } from './payment.status/payment.status.component';
+import { Error404Component } from './error404/error404.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
 	declarations: [
@@ -32,7 +36,11 @@ import { ContactComponent } from './contact/contact.component';
 		SemesterApplicationComponent,
 		NewsfeedComponent,
 		NotificationsComponent,
-  ContactComponent
+  ContactComponent,
+  MapComponent,
+  PaymentStatusComponent,
+  Error404Component,
+  PaymentComponent
 	],
 	imports: [
 		BrowserModule,

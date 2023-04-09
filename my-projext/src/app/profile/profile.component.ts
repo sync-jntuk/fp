@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BackendService } from '../services/backend/backend.service';
+import { Form } from '@angular/forms';
+import { UploadService } from '../services/upload/upload.service';
+import { HttpErrorResponse, HttpEventType } from '@angular/common/http';
+import { catchError, map, of } from 'rxjs';
 
 @Component({
 	selector: 'app-profile',
@@ -9,7 +13,7 @@ import { BackendService } from '../services/backend/backend.service';
 })
 export class ProfileComponent {
 
-	constructor(private router: Router, private bk: BackendService) { }
+	constructor(private router: Router, private bk: BackendService, private upload: UploadService) { }
 
 	user_data: any = null
 
@@ -36,6 +40,22 @@ export class ProfileComponent {
 			this.user_data = data._doc
 			console.log(data._doc)
 		})
+	}
+
+	uploadFile() {
+		this.upload.uploadFile('/upload/profile-picture', this.formData).subscribe((event: any) => {
+			if (event.body) {
+				console.log(event.body);
+				this.user_data.picture = event.body.path
+				console.log(this.user_data)
+			}
+		});
+	}
+
+	formData: FormData = new FormData()
+	handleFileInput(event: any) {
+		const fileToUpload = event.target.files.item(0)
+		this.formData.append('file_to_upload', fileToUpload)
 	}
 
 }
