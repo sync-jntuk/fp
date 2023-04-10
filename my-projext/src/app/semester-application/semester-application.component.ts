@@ -10,6 +10,7 @@ import { BackendService } from '../services/backend/backend.service';
 export class SemesterApplicationComponent {
 	constructor(private router: Router, private bk: BackendService) { }
 
+	roll = ''
 	reg = ''
 	year = ''
 	sem = ''
@@ -23,6 +24,8 @@ export class SemesterApplicationComponent {
 			this.router.navigateByUrl('/login')
 		}
 		this.user_data = JSON.parse(this.user_data)
+		this.reg = this.user_data.regulation
+		this.roll = this.user_data.roll
 	}
 
 	checkParams() {
@@ -48,8 +51,12 @@ export class SemesterApplicationComponent {
 				delete params[key]
 			}
 		}
+		params.roll = this.roll
+		params.regulation = this.reg
+		params.exam_type = 'REG'
 		params.batch = this.user_data.batch
 		console.log(params)
+		return
 		this.bk.post('/student/applyforsemester', params).subscribe(result => {
 			if (result.errno != undefined) {
 				alert('application not submitted')

@@ -23,6 +23,11 @@ export class HeaderComponent {
 	goToHome() {
 		this.router.navigateByUrl('/home')
 	}
+
+	goToNotifications() {
+		this.router.navigateByUrl('/notifications')
+	}
+
 	goToProfile() {
 		this.router.navigateByUrl('/profile')
 	}

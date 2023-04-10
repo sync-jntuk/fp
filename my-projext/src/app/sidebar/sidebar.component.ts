@@ -37,6 +37,10 @@ export class SidebarComponent {
 		this.router.navigateByUrl('/result')
 	}
 
+	goToCertificateStatus() {
+		this.router.navigateByUrl('/certificatestatus')
+	}
+
 	goToRegister() {
 		this.router.navigateByUrl('/register')
 	}
@@ -53,8 +57,16 @@ export class SidebarComponent {
 		this.router.navigateByUrl('/payment')
 	}
 
-	goToSemesterApplication(type: String) {
-		localStorage.setItem("Semester-Application", type + "")
+	goToSemesterApplication() {
 		this.router.navigateByUrl('/semesterapplication')
 	}
+
+	goToSupplySemesterApplication() {
+		this.router.navigateByUrl('/supplysemesterapplication')
+	}
+
+	goToCertificateApplication() {
+		this.router.navigateByUrl('/certificateapplication')
+	}
+
 }

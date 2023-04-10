@@ -49,11 +49,19 @@ export class SidebarComponent {
 		this.router.navigateByUrl('/upload-supplyresults')
 	}
 
+	goToUploadResultsCsv() {
+		this.router.navigateByUrl('/upload-results-csv')
+	}
+
 	goToSemesterApplication() {
 		this.router.navigateByUrl('/semester-application')
 	}
 
 	goToSupplySemesterApplication() {
 		this.router.navigateByUrl('/semester-supply-application')
+	}
+
+	goToSupplyCertificateApplication() {
+		this.router.navigateByUrl('/certificate-application')
 	}
 }

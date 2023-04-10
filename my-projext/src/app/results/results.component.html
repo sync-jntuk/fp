@@ -14,7 +14,7 @@
 
 		<form #resultForm="ngForm" (ngSubmit)="getResult(resultForm.value)">
 			<div class="form-floating container mt-5">
-				<select class="form-select" ngModel name="regulation_" id="regulation" aria-label="Floating label select example">
+				<select class="form-select" [(ngModel)]="regulation" name="regulation_" id="regulation" aria-label="Floating label select example">
 					<option selected value="">Select Regulation</option>
 					<option value="R13">R13</option>
 					<option value="R16">R16</option>
@@ -90,8 +90,8 @@
 								</tbody>
 							</table>
 							<!-- End Table with hoverable rows -->
-							<h1 class="display-6 container">GPA : {{result.total}}</h1>
-							<h1 class="display-6 container">Credits: {{result.creditSum}}</h1>
+							<h3 class="display-6 container">GPA : {{result.total}}</h3>
+							<h3 class="display-6 container">Credits: {{result.creditSum}}</h3>
 						</div>
 					</div>
 

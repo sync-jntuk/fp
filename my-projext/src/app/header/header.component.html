@@ -11,14 +11,14 @@
 	<nav class="header-nav ms-auto">
 		<ul class="d-flex align-items-center">
 			<li class="nav-item dropdown">
-				<a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+				<a class="nav-link nav-icon" data-bs-toggle="dropdown" (click)="goToNotifications()">
 					<i class="bi bi-bell"></i>
-					<span class="badge bg-primary badge-number">4</span>
+					<!-- <span class="badge bg-primary badge-number">4</span> -->
 				</a><!-- End Notification Icon -->
 			</li><!-- End Notification Nav -->
 			<li class="nav-item dropdown pe-3">
 				<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-					<img src="{{user_data.picture}}" alt="Profile" class="rounded-circle">
+					<img src="{{user_data.picture}}" alt="Profile" class="rounded-circle pp">
 					<span class="d-none d-md-block dropdown-toggle ps-2">{{user_data.first_name + " " +
 						user_data.last_name}}</span>
 				</a><!-- End Profile Iamge Icon -->

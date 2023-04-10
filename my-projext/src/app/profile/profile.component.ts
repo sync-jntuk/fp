@@ -23,7 +23,6 @@ export class ProfileComponent {
 			this.router.navigateByUrl('/login')
 		}
 		this.user_data = JSON.parse(this.user_data)
-		this.user_data.picture = 'assets/img/' + this.user_data.picture.split("/")[2]
 	}
 
 	updateProfile(params: any) {
@@ -42,12 +41,32 @@ export class ProfileComponent {
 		})
 	}
 
+	updatePasswd(params: any) {
+		params.roll = this.user_data.roll
+		console.log(params)
+		if (params.length < 8) {
+			alert('Password length must be at least 8 characters')
+			return
+		}
+		if (params.npasswd != params.cnpasswd) {
+			alert('Password does not match')
+			return
+		}
+		this.bk.post('/student/updatepasswd', params).subscribe(data => {
+			if (data.errno != undefined) {
+				alert('something went wrong')
+			} else {
+				alert('password changed successfully')
+				location.reload()
+			}
+		})
+	}
+
 	uploadFile() {
 		this.upload.uploadFile('/upload/profile-picture', this.formData).subscribe((event: any) => {
 			if (event.body) {
-				console.log(event.body);
 				this.user_data.picture = event.body.path
-				console.log(this.user_data)
+				localStorage.setItem('user_data', JSON.stringify(this.user_data))
 			}
 		});
 	}
@@ -56,6 +75,7 @@ export class ProfileComponent {
 	handleFileInput(event: any) {
 		const fileToUpload = event.target.files.item(0)
 		this.formData.append('file_to_upload', fileToUpload)
+		this.formData.append('roll', localStorage.getItem('roll') || '')
 	}
 
 }

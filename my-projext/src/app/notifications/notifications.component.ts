@@ -29,6 +29,8 @@ export class NotificationsComponent {
 		[7, 'PET']
 	])
 
+	year: number = 0
+	branch: number = 0
 	notifications: any = []
 
 	ngOnInit(): void {

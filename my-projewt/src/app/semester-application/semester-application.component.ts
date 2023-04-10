@@ -33,4 +33,14 @@ export class SemesterApplicationComponent {
 		})
 	}
 
+	approveApplications(roll: string, challana: string) {
+		this.bk.post('/admin/approve-semester-application', { roll: roll, challana: challana, exam_type: 'REG' }).subscribe(data => {
+			if (data.errno != undefined) {
+				alert('application not approved')
+			} else {
+				location.reload()
+			}
+		})
+	}
+
 }

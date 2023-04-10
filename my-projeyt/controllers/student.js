@@ -2,7 +2,9 @@ import student from "../models/student.js"
 import regulation from "../models/regulation.js"
 import examResult from "../models/examResult.js"
 import semesterApplicaion from "../models/semesterApplication.js"
+import certificateApplication from "../models/cerificationAppliction.js"
 import metaData from "../models/metaData.js"
+import sendMail from "../utility_modules/mailHandler.js"
 
 export default function StudentController() {
     return {
@@ -42,12 +44,13 @@ export default function StudentController() {
                     batch: batch - 4
                 })
                 const result = await new_student.save()
+                await sendMail({ receiverMail: email, static_msg: 'register', details: { name: first_name } })
                 return result
             } catch (e) {
                 return { errno: 403, ...e }
             }
         },
-        updateProfile: async function ({ roll, first_name, last_name, email }) {
+        updateProfile: async function ({ roll, first_name, last_name, email, picture }) {
             let update = {}
             if (email) {
                 update.email = email
@@ -55,6 +58,9 @@ export default function StudentController() {
             if (first_name) {
                 update.first_name = first_name
                 update.last_name = last_name
+            }
+            if (picture) {
+                update.picture = picture
             }
             try {
                 let result = await student.findOneAndUpdate({ roll: roll }, {
@@ -66,6 +72,14 @@ export default function StudentController() {
                     ...result,
                     ...update
                 }
+                return result
+            } catch (e) {
+                return { errno: 404, ...e }
+            }
+        },
+        updatePasswd: async function ({ roll, passwd, npasswd }) {
+            try {
+                const result = await student.updateOne({ roll: roll, passwd: passwd }, { passwd: npasswd })
                 return result
             } catch (e) {
                 return { errno: 404, ...e }
@@ -116,6 +130,32 @@ export default function StudentController() {
                 return result
             } catch (e) {
                 return { errno: 403, ...e }
+            }
+        },
+        applyForCertificates: async function ({ roll, email, application_type, name, purpose, duration, DU_number, date_of_payment }) {
+            try {
+                const certificate = new certificateApplication({
+                    roll: roll,
+                    email: email,
+                    application_type: application_type,
+                    name: name,
+                    purpose: purpose,
+                    duration: duration,
+                    DU_number: DU_number,
+                    date_of_payment: date_of_payment
+                })
+                const result = await certificate.save()
+                return result
+            } catch (e) {
+                return { errno: 403, ...e }
+            }
+        },
+        getCertificateStatus: async function ({ roll }) {
+            try {
+                const result = await certificateApplication.find({ roll: roll })
+                return result
+            } catch (e) {
+                return { errno: 404, ...e }
             }
         }
     }

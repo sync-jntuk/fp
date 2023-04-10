@@ -1,9 +1,38 @@
 import express from "express"
 import upload from "../utility_modules/fileHandler.js"
 import dotenv from "dotenv"
+import fs from "fs"
+
+import StudentController from "../controllers/student.js"
+
+const studentController = StudentController()
 
 dotenv.config()
 const app = express.Router()
+
+function move(oldPath, newPath, callback) {
+    fs.rename(oldPath, newPath, function (err) {
+        if (err) {
+            if (err.code === 'EXDEV') {
+                copy()
+            } else {
+                callback(err)
+            }
+            return
+        }
+        callback()
+    })
+    function copy() {
+        var readStream = fs.createReadStream(oldPath)
+        var writeStream = fs.createWriteStream(newPath)
+        readStream.on('error', callback)
+        writeStream.on('error', callback)
+        readStream.on('close', function () {
+            fs.unlink(oldPath, callback)
+        })
+        readStream.pipe(writeStream)
+    }
+}
 
 app.route('/exam-fee-recipts')
     .post(async (req, res) => {
@@ -12,9 +41,9 @@ app.route('/exam-fee-recipts')
                 if (err) {
                     res.status(200).json({ errno: 500 })
                 } else {
-                    const root = process.env.ROOT
-                    req.file.path = root + req.file.path
-                    console.log(req.file)
+                    move(req.file.path, '../my-projext/src/assets/img/' + req.file.path, () => { })
+                    req.file.path = process.env.ROOT + req.file.path
+                    res.status(200).json(req.file)
                 }
             } catch (err) {
                 res.status(200).json({ errno: 500 })
@@ -29,12 +58,13 @@ app.route('/profile-picture')
         // res.json(result)
         upload(req, res, async (err) => {
             try {
-                console.log(err)
                 if (err) {
                     res.status(200).json({ errno: 501, message: err })
                 } else {
-                    const root = process.env.ROOT
-                    req.file.path = root + req.file.path
+                    move(req.file.path, '../my-projext/src/assets/img/' + req.file.path, () => { })
+                    req.file.path = process.env.ROOT + req.file.path
+                    const { roll } = req.body
+                    await studentController.updateProfile({ roll: roll, picture: req.file.path })
                     res.status(200).json(req.file)
                 }
             } catch (err) {

@@ -26,9 +26,29 @@ app.route('/upload-supplyresult')
         res.status(200).json(await adminController.uploadSupplyResult(req.body))
     })
 
+app.route('/updateprofile')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.updateProfile(req.body))
+    })
+
 app.route('/semester-applications')
     .post(async (req, res) => {
         res.status(200).json(await adminController.getSemesterApplications(req.body))
+    })
+
+app.route('/approve-semester-application')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.approveSemesterApplication(req.body))
+    })
+
+app.route('/certificate-applications')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.getCertificates(req.body))
+    })
+
+app.route('/approve-certificate-application')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.approveCertifate(req.body))
     })
 
 app.route('/send-result')

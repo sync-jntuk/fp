@@ -18,6 +18,9 @@ import { UploadSupplyResultsComponent } from './upload.supply-results/upload.sup
 import { ContactComponent } from './contact/contact.component';
 import { SemesterApplicationComponent } from './semester-application/semester-application.component';
 import { SupplySemesterApplicationComponent } from './supply-semester-application/supply-semester-application.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UploadResultsCsvComponent } from './upload.results.csv/upload.results.csv.component';
+import { CertificateApplicationComponent } from './certificate-application/certificate-application.component';
 
 @NgModule({
 	declarations: [
@@ -34,7 +37,10 @@ import { SupplySemesterApplicationComponent } from './supply-semester-applicatio
   UploadSupplyResultsComponent,
   ContactComponent,
   SemesterApplicationComponent,
-  SupplySemesterApplicationComponent
+  SupplySemesterApplicationComponent,
+  ProfileComponent,
+  UploadResultsCsvComponent,
+  CertificateApplicationComponent
 	],
 	imports: [
 		BrowserModule,

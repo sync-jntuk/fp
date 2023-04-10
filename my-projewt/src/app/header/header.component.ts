@@ -10,15 +10,13 @@ export class HeaderComponent {
 
 	constructor(private router: Router) { }
 
-	user_data: any = null
+	email: any = null
 
 	ngOnInit(): void {
-		// this.user_data = localStorage.getItem("user_data")
-		// if (!this.user_data) {
-		// 	this.router.navigateByUrl('/login')
-		// }
-		// this.user_data = JSON.parse(this.user_data)
-		// this.user_data.picture = 'assets/img/' + this.user_data.picture.split("/")[2]
+		this.email = localStorage.getItem("email")
+		if (!this.email) {
+			this.router.navigateByUrl('/login')
+		}
 	}
 
 	goToHome() {

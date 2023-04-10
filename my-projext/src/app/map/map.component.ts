@@ -65,7 +65,7 @@ export class MapComponent {
 		shadowSize: [38, 38],
 		iconAnchor: [20, 40],
 		shadowAnchor: [0, 0],
-		popupAnchor: [20, 0]
+		popupAnchor: [0, -40]
 	})
 	private eduIcon: L.Icon = L.icon({
 		iconUrl: "assets/map-img/university.png",
@@ -73,7 +73,7 @@ export class MapComponent {
 		shadowSize: [38, 38],
 		iconAnchor: [20, 40],
 		shadowAnchor: [0, 0],
-		popupAnchor: [20, 0]
+		popupAnchor: [0, -40]
 	})
 	private centroid: L.LatLngExpression = [16.980277101101144, 82.24202938112464]
 

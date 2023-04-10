@@ -16,6 +16,7 @@ export class ResultsComponent {
 	user_data: any = {}
 	ryear = 0
 	rsem = 0
+	regulation = ''
 	gradeMap: any = {
 		10: 'O', 9: 'S', 8: 'A', 7: 'B', 6: 'C', 5: 'D', 0: 'F'
 	}
@@ -29,11 +30,13 @@ export class ResultsComponent {
 			return
 		}
 		this.user_data = JSON.parse(this.user_data)
+		this.regulation = this.user_data.regulation
 	}
 
 	getResult(params: any) {
 		console.log(params)
 		params.roll = this.user_data.roll
+		params.regulation_ = this.user_data.regulation
 		// return
 		this.bk.post('/student/result', params).subscribe(data => {
 			console.log(data)

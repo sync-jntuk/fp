@@ -19,6 +19,11 @@ app.route('/updateprofile')
         res.status(200).json(await studentController.updateProfile(req.body))
     })
 
+app.route('/updatepasswd')
+    .post(async (req, res) => {
+        res.status(200).json(await studentController.updatePasswd(req.body))
+    })
+
 app.route('/result')
     .post(async (req, res) => {
         res.status(200).json(await studentController.getResult(req.body))
@@ -27,6 +32,16 @@ app.route('/result')
 app.route('/applyforsemester')
     .post(async (req, res) => {
         res.status(200).json(await studentController.applyForSemester(req.body))
+    })
+
+app.route('/applyforcertificate')
+    .post(async (req, res) => {
+        res.status(200).json(await studentController.applyForCertificates(req.body))
+    })
+
+app.route('/get-certificate-status')
+    .post(async (req, res) => {
+        res.status(200).json(await studentController.getCertificateStatus(req.body))
     })
 
 app.route('/metadata')

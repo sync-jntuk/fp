@@ -2,6 +2,7 @@ import admin from "../models/admin.js"
 import examResult from "../models/examResult.js"
 import student from "../models/student.js"
 import semesterApplication from "../models/semesterApplication.js"
+import certificateApplication from "../models/cerificationAppliction.js"
 import sendMail from "../utility_modules/mailHandler.js"
 import StudentController from "./student.js"
 
@@ -94,6 +95,14 @@ export default function AdminController() {
                 return { errno: 404, ...e }
             }
         },
+        updateProfile: async function ({ email, passwd, npasswd }) {
+            try {
+                const result = await admin.updateOne({ email: email, passwd: passwd }, { passwd: npasswd })
+                return result
+            } catch (e) {
+                return { errno: 404, ...e }
+            }
+        },
         getSemesterApplications: async function ({ exam_type }) {
             try {
                 const results = await semesterApplication.find({
@@ -104,6 +113,57 @@ export default function AdminController() {
             } catch (e) {
                 return { errno: 404, ...e }
             }
+        },
+        approveSemesterApplication: async function ({ roll, exam_type, challana }) {
+            try {
+                const results = await semesterApplication.findOneAndUpdate({
+                    roll: roll,
+                    exam_type: exam_type,
+                    challana: challana
+                }, { $set: { checked: true } })
+                const stud = await student.findOne({ roll: roll })
+                await sendMail({
+                    receiverMail: stud.email,
+                    static_msg: 'approve_result_application',
+                    details: {
+                        name: stud.first_name,
+                        roll: stud.roll,
+                        year: results.year,
+                        semester: results.semester,
+                        challana: challana
+                    }
+                })
+                return results
+            } catch (e) {
+                return { errno: 404, ...e }
+            }
+        },
+        getCertificates: async function ({ approved }) {
+            try {
+                const results = await certificateApplication.find({
+                    approved: false
+                })
+                return results
+            } catch (e) {
+                return { errno: 404, ...e }
+            }
+        },
+        approveCertifate: async function ({ roll, DU_number, application_type }) {
+            const results = await certificateApplication.findOneAndUpdate({
+                roll: roll,
+                DU_number: DU_number
+            }, { $set: { approved: true } })
+            const stud = await student.findOne({ roll: roll })
+            await sendMail({
+                receiverMail: stud.email,
+                static_msg: 'approve_applications',
+                details: {
+                    name: stud.first_name,
+                    roll: stud.roll,
+                    application_type: application_type
+                }
+            })
+            return results
         },
         sendResult: async function ({ roll, regulation_, year, semester }) {
             try {

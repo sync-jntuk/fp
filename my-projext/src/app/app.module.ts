@@ -21,6 +21,9 @@ import { MapComponent } from './map/map.component';
 import { PaymentStatusComponent } from './payment.status/payment.status.component';
 import { Error404Component } from './error404/error404.component';
 import { PaymentComponent } from './payment/payment.component';
+import { SupplySemesterApplicationComponent } from './supply-semester-application/supply-semester-application.component';
+import { CertificateApplicationComponent } from './certificate-application/certificate-application.component';
+import { CertificateStatusComponent } from './certificate-status/certificate-status.component';
 
 @NgModule({
 	declarations: [
@@ -36,11 +39,14 @@ import { PaymentComponent } from './payment/payment.component';
 		SemesterApplicationComponent,
 		NewsfeedComponent,
 		NotificationsComponent,
-  ContactComponent,
-  MapComponent,
-  PaymentStatusComponent,
-  Error404Component,
-  PaymentComponent
+		ContactComponent,
+		MapComponent,
+		PaymentStatusComponent,
+		Error404Component,
+		PaymentComponent,
+		SupplySemesterApplicationComponent,
+  CertificateApplicationComponent,
+  CertificateStatusComponent,
 	],
 	imports: [
 		BrowserModule,

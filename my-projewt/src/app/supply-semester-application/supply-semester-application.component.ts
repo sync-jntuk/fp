@@ -33,4 +33,15 @@ export class SupplySemesterApplicationComponent {
 		})
 	}
 
+	approveApplications(roll: string, challana: string) {
+		console.log(roll, challana)
+		this.bk.post('/admin/approve-semester-application', { roll: roll, challana: challana, exam_type: 'SUP' }).subscribe(data => {
+			if (data.errno != undefined) {
+				alert('application not approved')
+			} else {
+				location.reload()
+			}
+		})
+	}
+
 }
