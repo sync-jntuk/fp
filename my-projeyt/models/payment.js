@@ -28,7 +28,7 @@ const paymentSchema = new mongoose.Schema({
     purpose: {
         type: String,
         required: true,
-        enum: ['Exam Fee'],
+        enum: ['Exam Fee', 'bonafide', 'custodian', 'course_completion_certificate'],
     },
     amount: {
         type: Number,

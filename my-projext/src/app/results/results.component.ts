@@ -21,6 +21,15 @@ export class ResultsComponent {
 		10: 'O', 9: 'S', 8: 'A', 7: 'B', 6: 'C', 5: 'D', 0: 'F'
 	}
 
+	class_name: String = ''
+	changeClass() {
+		if (this.class_name == '') {
+			this.class_name = 'toggle-sidebar'
+		} else {
+			this.class_name = ''
+		}
+	}
+
 	ngOnInit(): void {
 		this.ryear = 0
 		this.rsem = 0

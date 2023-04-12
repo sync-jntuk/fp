@@ -5,6 +5,10 @@ import semesterApplicaion from "../models/semesterApplication.js"
 import certificateApplication from "../models/cerificationAppliction.js"
 import metaData from "../models/metaData.js"
 import sendMail from "../utility_modules/mailHandler.js"
+import jwt from "jsonwebtoken"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 export default function StudentController() {
     return {
@@ -32,22 +36,44 @@ export default function StudentController() {
                 return { errno: 404, ...e }
             }
         },
-        register: async function ({ roll, first_name, last_name, email, passwd, regulation, batch }) {
+        register: async function ({ roll, first_name, last_name, email, passwd, regulation, batch, graduation_type }) {
             try {
-                const new_student = new student({
+                const join_year = {
+                    'Btech': 4,
+                    'Mtech': 2,
+                }
+                const data = {
                     roll: roll,
                     first_name: first_name,
                     last_name: last_name,
                     email: email,
+                    graduation_type: graduation_type,
                     passwd: passwd,
                     regulation: regulation,
-                    batch: batch - 4
-                })
-                const result = await new_student.save()
-                await sendMail({ receiverMail: email, static_msg: 'register', details: { name: first_name } })
-                return result
+                    batch: batch - join_year[graduation_type],
+                }
+                await student.validate(data)
+                if (await student.findOne({ roll: roll })) {
+                    throw new Error("duplicate roll number")
+                }
+                if (await student.findOne({ email: email })) {
+                    throw new Error("duplicate email address")
+                }
+                const token = jwt.sign({ data: data }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' })
+                await sendMail({ receiverMail: email, static_msg: 'register', details: { name: first_name, token: token } })
+                return { message: "emailsent" }
             } catch (e) {
                 return { errno: 403, ...e }
+            }
+        },
+        emailVerification: async function ({ token }) {
+            try {
+                const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
+                const new_student = new student(decoded.data)
+                const result = await new_student.save()
+                return result
+            } catch (e) {
+                return { errno: 404, ...e }
             }
         },
         updateProfile: async function ({ roll, first_name, last_name, email, picture }) {

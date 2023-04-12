@@ -16,6 +16,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { SupplySemesterApplicationComponent } from './supply-semester-application/supply-semester-application.component';
 import { CertificateApplicationComponent } from './certificate-application/certificate-application.component';
 import { CertificateStatusComponent } from './certificate-status/certificate-status.component';
+import { VerifyEmailComponent } from './verify.email/verify.email.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: "/home", pathMatch: "full" },
@@ -35,6 +36,7 @@ const routes: Routes = [
 	{ path: 'payment', component: PaymentComponent },
 	{ path: 'payment-status', component: PaymentStatusComponent },
     { path: 'error-404', component: Error404Component },
+	{ path: 'activate', component: VerifyEmailComponent }
 ];
 
 @NgModule({

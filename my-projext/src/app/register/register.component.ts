@@ -9,6 +9,7 @@ import { BackendService } from '../services/backend/backend.service';
 })
 export class RegisterComponent {
 
+	current_year = new Date().getFullYear()
 	constructor(private bk: BackendService, private router: Router) { }
 
 	ngOnInit(): void {
@@ -20,7 +21,7 @@ export class RegisterComponent {
 		this.bk.post('/student/register', data).subscribe(result => {
 			console.log(result)
 			if (result.errno != undefined) {
-				alert('some error')
+				alert('error while registering')
 			} else {
 				this.router.navigateByUrl('/login')
 			}

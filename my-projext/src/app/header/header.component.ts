@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,9 +7,15 @@ import { Router } from '@angular/router';
 	styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+	@Output() toggleEvent = new EventEmitter()
+
 	constructor(private router: Router) { }
 
 	user_data: any = null
+
+	changeClass() {
+		this.toggleEvent.emit()
+	}
 
 	ngOnInit(): void {
 		this.user_data = localStorage.getItem("user_data")

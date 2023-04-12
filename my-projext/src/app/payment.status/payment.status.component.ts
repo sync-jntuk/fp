@@ -12,6 +12,15 @@ export class PaymentStatusComponent {
 
 	details: any = {}
 
+	class_name: String = ''
+	changeClass() {
+		if (this.class_name == '') {
+			this.class_name = 'toggle-sidebar'
+		} else {
+			this.class_name = ''
+		}
+	}
+
 	ngOnInit() {
 		this.aroute.queryParams.subscribe((param: Params) => {
 			for (const key of ["status", "roll", "name", "email", "purpose", "amount", "payment_id"]) {

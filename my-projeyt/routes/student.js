@@ -14,6 +14,11 @@ app.route('/register')
         res.status(200).json(await studentController.register(req.body))
     })
 
+app.route('/activate/')
+    .post(async (req, res) => {
+        res.status(200).json(await studentController.emailVerification(req.body))
+    })
+
 app.route('/updateprofile')
     .post(async (req, res) => {
         res.status(200).json(await studentController.updateProfile(req.body))

@@ -1,5 +1,5 @@
 import express from "express"
-import NewsFeedController from "../controllers/newsfeed.js"
+import NewsFeedController from "../controllers/newsFeed.js"
 
 const app = express.Router()
 const newsFeedController = NewsFeedController()
@@ -9,7 +9,7 @@ app.route('/current')
         res.status(200).json({
             feeds: await newsFeedController.searchNews({
                 query: "Current trending computer science technologies",
-                limit: 10,
+                limit: 4,
                 save: false
             })
         })
@@ -25,6 +25,11 @@ app.route('/search')
                 save: true
             })
         })
+    })
+
+app.route('/test')
+    .post(async (req, res) => {
+        res.status(200).json(await newsFeedController.test(req.body))
     })
 
 const newsFeed = app

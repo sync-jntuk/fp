@@ -24,6 +24,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { SupplySemesterApplicationComponent } from './supply-semester-application/supply-semester-application.component';
 import { CertificateApplicationComponent } from './certificate-application/certificate-application.component';
 import { CertificateStatusComponent } from './certificate-status/certificate-status.component';
+import { NgxLoadingModule } from 'ngx-loading';
+import { VerifyEmailComponent } from './verify.email/verify.email.component';
 
 @NgModule({
 	declarations: [
@@ -45,14 +47,16 @@ import { CertificateStatusComponent } from './certificate-status/certificate-sta
 		Error404Component,
 		PaymentComponent,
 		SupplySemesterApplicationComponent,
-  CertificateApplicationComponent,
-  CertificateStatusComponent,
+		CertificateApplicationComponent,
+		CertificateStatusComponent,
+  VerifyEmailComponent,
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
 		FormsModule,
+		NgxLoadingModule.forRoot({}),
 	],
 	providers: [],
 	bootstrap: [AppComponent]

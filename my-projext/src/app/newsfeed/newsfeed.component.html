@@ -1,10 +1,7 @@
-<body>
+<ngx-loading [show]="loading"></ngx-loading>
 
-	<!-- ======= Header ======= -->
-	<app-header></app-header>
-
-	<!-- ======= Sidebar ======= -->
-	<app-sidebar></app-sidebar>
+<body class="{{class_name}}">
+	<app-header (toggleEvent)="changeClass()"></app-header>
 
 	<main id="main" class="main">
 

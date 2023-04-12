@@ -31,6 +31,15 @@ export class DeleteNotificationComponent {
 
 	notifications: any = []
 
+	class_name: String = ''
+	changeClass() {
+		if (this.class_name == '') {
+			this.class_name = 'toggle-sidebar'
+		} else {
+			this.class_name = ''
+		}
+	}
+
 	ngOnInit(): void {
 		this.getNotifications()
 	}

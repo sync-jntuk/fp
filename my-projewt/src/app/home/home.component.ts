@@ -18,6 +18,15 @@ export class HomeComponent {
 	notifications: any = []
 	email: any = {}
 
+	class_name: String = ''
+	changeClass() {
+		if (this.class_name == '') {
+			this.class_name = 'toggle-sidebar'
+		} else {
+			this.class_name = ''
+		}
+	}
+
 	ngOnInit(): void {
 		this.email = localStorage.getItem("email")
 		if (!this.email) {

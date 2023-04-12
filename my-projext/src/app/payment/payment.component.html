@@ -1,10 +1,5 @@
-<body>
-
-	<!-- ======= Header ======= -->
-	<app-header></app-header>
-
-	<!-- ======= Sidebar ======= -->
-	<app-sidebar></app-sidebar>
+<body class="{{class_name}}">
+	<app-header (toggleEvent)="changeClass()"></app-header>
 
 	<main id="main" class="main">
 
@@ -31,9 +26,12 @@
 						</div>
 						<div class="form-outline mb-4">
 							<label class="form-label" for="purpose">Purpose</label>
-							<select ngModel name="purpose" id="purpose" class="form-control">
+							<select ngModel name="purpose" id="purpose" class="form-select">
 								<option value="" selected>Select One</option>
 								<option value="Exam Fee">Exam Fee</option>
+								<option value="bonafide">Bonafide certificate</option>
+								<option value="custodian">Custodian certificate</option>
+								<option value="course_completion_certificate">Course Completion Certificate</option>
 							</select>
 						</div>
 						<div class="form-outline mb-4">

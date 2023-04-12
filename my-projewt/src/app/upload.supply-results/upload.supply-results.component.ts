@@ -10,8 +10,16 @@ export class UploadSupplyResultsComponent {
 
 	constructor(private bk: BackendService) { }
 
-	ngOnInit(): void {
+	class_name: String = ''
+	changeClass() {
+		if (this.class_name == '') {
+			this.class_name = 'toggle-sidebar'
+		} else {
+			this.class_name = ''
+		}
+	}
 
+	ngOnInit(): void {
 	}
 
 	year: String = ''

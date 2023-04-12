@@ -17,6 +17,15 @@ export class ProfileComponent {
 
 	user_data: any = null
 
+	class_name: String = ''
+	changeClass() {
+		if (this.class_name == '') {
+			this.class_name = 'toggle-sidebar'
+		} else {
+			this.class_name = ''
+		}
+	}
+
 	ngOnInit(): void {
 		this.user_data = localStorage.getItem("user_data")
 		if (!this.user_data) {

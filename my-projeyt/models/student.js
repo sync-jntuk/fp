@@ -31,6 +31,11 @@ const studentSchema = new mongoose.Schema({
             },
         },
     },
+    graduation_type: {
+        type: String,
+        required: true,
+        enum: ["Btech", "Mtech"]
+    },
     passwd: {
         type: String,
         required: true,

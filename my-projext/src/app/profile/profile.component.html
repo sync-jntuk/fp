@@ -1,7 +1,5 @@
-<body>
-
-	<app-header></app-header>
-	<app-sidebar></app-sidebar>
+<body class="{{class_name}}">
+	<app-header (toggleEvent)="changeClass()"></app-header>
 
 	<main id="main" class="main">
 

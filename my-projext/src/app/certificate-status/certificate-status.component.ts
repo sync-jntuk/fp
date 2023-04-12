@@ -20,6 +20,15 @@ export class CertificateStatusComponent {
 		})
 	}
 
+	class_name: String = ''
+	changeClass() {
+		if (this.class_name == '') {
+			this.class_name = 'toggle-sidebar'
+		} else {
+			this.class_name = ''
+		}
+	}
+
 	ngOnInit() {
 		this.roll = localStorage.getItem('roll') || ''
 		if (!this.roll) {
