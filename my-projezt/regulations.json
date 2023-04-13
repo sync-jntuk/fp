@@ -1,0 +1,352 @@
+[{
+  "_id": {
+    "$oid": "63ce2974f53fa4329005c73f"
+  },
+  "regulation": "R19",
+  "year": 1,
+  "semester": 1,
+  "subjects": {
+    "BS11T01": {
+      "name": "MATHEMATICS-I",
+      "credits": 3
+    },
+    "BS11T03": {
+      "name": "APPLIED CHEMISTRY",
+      "credits": 3
+    },
+    "ES11T03": {
+      "name": "ESSENTIALS OF ELECTRICAL & ELECTRONICS ENGINEERING",
+      "credits": 3
+    },
+    "ES11T04": {
+      "name": "ENGINEERING DRAWING",
+      "credits": 2.5
+    },
+    "HS11T01": {
+      "name": "COMMUNICATIVE ENGLISH",
+      "credits": 3
+    },
+    "MC11T01": {
+      "name": "ENVIRONMENTAL SCIENCE",
+      "credits": 0
+    },
+    "AC11P02": {
+      "name": "PHYSICAL FITNESS ACTIVITY",
+      "credits": 0
+    },
+    "BS11P03": {
+      "name": "APPLIED CHEMISTRY LAB",
+      "credits": 1.5
+    },
+    "ES11P02": {
+      "name": "ESSENTIALS OF ELECTRICAL & ELECTRONICS ENGINEERING LAB",
+      "credits": 1
+    },
+    "ES11P05": {
+      "name": "IT WORKSHOP",
+      "credits": 1
+    },
+    "HS11P01": {
+      "name": "ENGLISH COMMUNICATION SKILLS LAB-I",
+      "credits": 1
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63ce46f05833d1a47d45fbb7"
+  },
+  "regulation": "R19",
+  "year": 1,
+  "semester": 2,
+  "subjects": {
+    "BS12T01": {
+      "name": "MATHEMATICS-II",
+      "credits": 3
+    },
+    "BS12T02": {
+      "name": "MATHEMATICS-III",
+      "credits": 3
+    },
+    "BS12T03": {
+      "name": "APPLIED PHYSICS",
+      "credits": 3
+    },
+    "ES12T03": {
+      "name": "DIGITAL LOGIC DESIGN",
+      "credits": 3
+    },
+    "ES12T07": {
+      "name": "PROBLEM SOLVING AND PROGRAMMING USING C",
+      "credits": 3
+    },
+    "MC12T02": {
+      "name": "CONSTITUTION OF INDIA",
+      "credits": 0
+    },
+    "AC12P01": {
+      "name": "APPLIED PHYSICS VIRTUAL LAB",
+      "credits": 0
+    },
+    "BS12P01": {
+      "name": "APPLIED PHYSICS LAB",
+      "credits": 1.5
+    },
+    "ES12P04": {
+      "name": "PROBLEM SOLVING AND PROGRAMMING USING C LAB",
+      "credits": 1.5
+    },
+    "HA12P02": {
+      "name": "ENGLISH COMMUNICATION SKILLS LAB-II",
+      "credits": 1.5
+    },
+    "PR12T01": {
+      "name": "ENGINEERING EXPLORATION PROJECT-DESIGN THINKING",
+      "credits": 0.5
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63ce46f05833d1a47d45fbb8"
+  },
+  "regulation": "R19",
+  "year": 2,
+  "semester": 1,
+  "subjects": {
+    "ES2105T05": {
+      "name": "COMPUTER ORGANIZATION",
+      "credits": 3
+    },
+    "ES2105T06": {
+      "name": "COMPUTER GRAPHICS",
+      "credits": 3
+    },
+    "MC2100T01": {
+      "name": "ESSENCE OF INDIAN TRADITIONAL KNOWLEDGE",
+      "credits": 0
+    },
+    "MC2100T02": {
+      "name": "EMPLOYABILITY SKILLS-I",
+      "credits": 0
+    },
+    "PC2105T01": {
+      "name": "MATHEMATICAL FOUNDATIONS OF COMPUTER SCIENCE",
+      "credits": 3
+    },
+    "PC2105T02": {
+      "name": "SOFTWARE ENGINEERING",
+      "credits": 3
+    },
+    "PC2105T03": {
+      "name": "OOP THROUGH JAVA",
+      "credits": 3
+    },
+    "PC2105T04": {
+      "name": "DATA STRUCTURES THROUGH C",
+      "credits": 3
+    },
+    "PC2105PO1": {
+      "name": "OOP THROUGH JAVA LAB",
+      "credits": 1.5
+    },
+    "PC2105P02": {
+      "name": "DATA STRUCTURES THROUGH C LAB",
+      "credits": 1.5
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63ce46f05833d1a47d45fbb9"
+  },
+  "regulation": "R19",
+  "year": 2,
+  "semester": 2,
+  "subjects": {
+    "BS2205T01": {
+      "name": "PROBABILITY &STATISTICS",
+      "credits": 3
+    },
+    "MC2200T02": {
+      "name": "HUMAN VALUES & PROFESSIONAL ETHICS",
+      "credits": 0
+    },
+    "PC2205T01": {
+      "name": "WEB TECHNOLOGIES",
+      "credits": 3
+    },
+    "PC2205T02": {
+      "name": "OPERATING SYSTEMS",
+      "credits": 3
+    },
+    "PC2205T03": {
+      "name": "DATABASE MANAGEMENT SYSTEMS",
+      "credits": 4
+    },
+    "PC2205T04": {
+      "name": "FORMAL LANGUAGES AND AUTOMATA THEORY",
+      "credits": 3
+    },
+    "AC2200P01": {
+      "name": "PHYSICAL FITNESS ACTIVITY",
+      "credits": 0
+    },
+    "PC2201P03": {
+      "name": "SOCIALLY RELEVANT PROJECTS",
+      "credits": 0.5
+    },
+    "PC2205P01": {
+      "name": "OPERATING SYSTEMS & LINUX LAB",
+      "credits": 1.5
+    },
+    "PC2205PO2": {
+      "name": "WEB TECHNOLOGIES LAB",
+      "credits": 1.5
+    },
+    "PC2205P03": {
+      "name": "DATABASE MANAGEMENT SYSTEMS LAB",
+      "credits": 1.5
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63ce46f05833d1a47d45fbba"
+  },
+  "regulation": "R19",
+  "year": 3,
+  "semester": 1,
+  "subjects": {
+    "PC3105T01": {
+      "name": "DATA WAREHOUSING AND DATA MINING",
+      "credits": 3
+    },
+    "PC3105T02": {
+      "name": "COMPUTER NETWORKS",
+      "credits": 3
+    },
+    "PC3105T03": {
+      "name": "COMPILER DESIGN",
+      "credits": 3
+    },
+    "PC3105T04": {
+      "name": "ARTIFICIAL INTELLIGENCE",
+      "credits": 3
+    },
+    "PE3105T01A": {
+      "name": "OBJECTIVE ORIENTED ANALYSIS AND DESIGN",
+      "credits": 3
+    },
+    "PC3105P01": {
+      "name": "COMPUTER NETWORKS & COMPILER DESIGN LAB",
+      "credits": 1.5
+    },
+    "PC3105P02": {
+      "name": "AI TOOLS & TECHNIQUES LAB",
+      "credits": 1.5
+    },
+    "PC3105P03": {
+      "name": "DATA WAREHOUSING AND DATA MINING LAB",
+      "credits": 1.5
+    },
+    "AC3100P01": {
+      "name": "PHYSICAL FITNESS ACTIVITIES",
+      "credits": 0
+    },
+    "MC3100T01": {
+      "name": "EMPLOYIBILITY SKILLS-II",
+      "credits": 0
+    },
+    "PC3100P01": {
+      "name": "SOCIALLY RELEVANT PROJECTS",
+      "credits": 0.5
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63ce46f05833d1a47d45fbbb"
+  },
+  "regulation": "R19",
+  "year": 3,
+  "semester": 2,
+  "subjects": {
+    "HS3205T01": {
+      "name": "UNIVERSAL HUMAN VALUES 2:UNDERSTANDING HARMONY",
+      "credits": 3
+    },
+    "MC3205T01": {
+      "name": "IPR&PATENTS",
+      "credits": 0
+    },
+    "PC3205T01": {
+      "name": "MACHINE LEARNING USING PYTHON",
+      "credits": 3
+    },
+    "PC3205T02": {
+      "name": "DESIGN AND ANALYSIS ALGORITHMS",
+      "credits": 3
+    },
+    "PE3205T02D": {
+      "name": "DISTRIBUTED SYSTEMS",
+      "credits": 3
+    },
+    "PE3205T03A": {
+      "name": "SOFTWARE PROJECT MANAGEMENT",
+      "credits": 3
+    },
+    "PC3205P01": {
+      "name": "MACHINE LEARNING USING PYTHON LAB",
+      "credits": 1.5
+    },
+    "PC3205P02": {
+      "name": "DATA ANALYTICS USING R LAB",
+      "credits": 1.5
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63e0d5d44ce6c316a527a354"
+  },
+  "regulation": "R19",
+  "year": 4,
+  "semester": 1,
+  "subjects": {
+    "MC4105PO1": {
+      "name": "PHYSICAL FITNESS ACTIVITIES",
+      "credits": 0
+    },
+    "OE4100T01B": {
+      "name": "ENVIRONMENTAL POLLUTION AND CONTROL",
+      "credits": 3
+    },
+    "PC4105PO1": {
+      "name": "BIG DATA ANALYTICS LAB",
+      "credits": 1.5
+    },
+    "PC4105PO2": {
+      "name": "CRYPTOGRAPHY AND NETWORK SECURITY LAB",
+      "credits": 1.5
+    },
+    "PC4105TO1": {
+      "name": "CRYPTOGRAPHY AND NETWORK SECURITY",
+      "credits": 3
+    },
+    "PC4105TO2": {
+      "name": "BIG DATA ANALYTICS",
+      "credits": 3
+    },
+    "PE4105T01B": {
+      "name": "MEAN STACK DEVELOPMENT",
+      "credits": 3
+    },
+    "PE4105T02D": {
+      "name": "CYBER SECURITY AND FORENSIC",
+      "credits": 3
+    },
+    "PR4105P01": {
+      "name": "PORJECT WORK PHASE - 1",
+      "credits": 2
+    },
+    "PR4105P02": {
+      "name": "INDUSTRIAL TRAINING",
+      "credits": 1
+    }
+  }
+}]

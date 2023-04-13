@@ -7,7 +7,6 @@ const adminController = new AdminController()
 const regulationController = new RegulationController()
 
 
-
 app.route('/login')
     .post(async (req, res) => {
         res.status(200).json(await adminController.login(req.body))

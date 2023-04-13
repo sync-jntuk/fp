@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "6427fde8c75c90e6ef7b1e57"
+  },
+  "year": 0,
+  "branch": 0,
+  "data": "Test Notification 1",
+  "date_of_update": "2023-04-01 15:18:24",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6427fdf2c75c90e6ef7b1e59"
+  },
+  "year": 0,
+  "branch": 5,
+  "data": "Test Notification 2",
+  "date_of_update": "2023-04-01 15:18:34",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6427fdffc75c90e6ef7b1e5b"
+  },
+  "year": 4,
+  "branch": 0,
+  "data": "Test Notification 3",
+  "date_of_update": "2023-04-01 15:18:47",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6427fe09c75c90e6ef7b1e5d"
+  },
+  "year": 4,
+  "branch": 5,
+  "data": "Test Notification 4",
+  "date_of_update": "2023-04-01 15:18:57",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432af017456a707877bbebb"
+  },
+  "year": 4,
+  "branch": 5,
+  "data": "Project Reviews will be on 11-04-2023 (Tuesday)\nplease, note it",
+  "date_of_update": "2023-04-09 17:56:41",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432af317456a707877bbec2"
+  },
+  "year": 4,
+  "branch": 0,
+  "data": "TCS Digital interviews will be on 10-04-2023 (Monday)\nplease, note it",
+  "date_of_update": "2023-04-09 17:57:29",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435b71d12e18f038b5c4544"
+  },
+  "year": 4,
+  "branch": 0,
+  "data": "Hello Students,\n      You are going to attend the Final Year Semester Exams from 23rd April. Kindly check the exam schedule.\n\nRegards,\nAdmin.",
+  "date_of_update": "2023-04-12 01:08:05",
+  "__v": 0
+}]

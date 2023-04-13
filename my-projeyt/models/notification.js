@@ -18,12 +18,16 @@ const notificationSchema = new mongoose.Schema({
             let ISTOffset = 330
             let ISTTime = new Date(currentTime.getTime() + ISTOffset * 60000)
             return ISTTime.toISOString() .replace(/T/, ' ').replace(/\..+/, '')
-        }
+        },
     },
     data: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
+    important: {
+        type: Boolean,
+        default: false,
+    },
 })
 
 notificationSchema.index({ date_of_update: -1, year: 1, branch: 1 })

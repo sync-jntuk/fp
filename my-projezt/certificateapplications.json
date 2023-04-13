@@ -1,0 +1,109 @@
+[{
+  "_id": {
+    "$oid": "64339dc618c6326514c6b9a0"
+  },
+  "roll": "19021A0517",
+  "email": "sandyblaze911@gmail.com",
+  "application_type": "bonafide",
+  "name": "Sandeep",
+  "purpose": "Job",
+  "duration": 6,
+  "DU_number": 147258369,
+  "date_of_payment": {
+    "$date": {
+      "$numberLong": "1680998400000"
+    }
+  },
+  "approved": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6433a3b0016f7feb1f034101"
+  },
+  "roll": "19021A0517",
+  "email": "sandyblaze911@gmail.com",
+  "application_type": "custodian",
+  "name": "Sandeep",
+  "purpose": "Job",
+  "duration": 6,
+  "DU_number": 145278963,
+  "date_of_payment": {
+    "$date": {
+      "$numberLong": "1680912000000"
+    }
+  },
+  "approved": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6433a47957c773154d721278"
+  },
+  "roll": "19021A0517",
+  "email": "sandyblaze911@gmail.com",
+  "application_type": "course_completion_certificate",
+  "name": "Sandeep",
+  "purpose": "Job",
+  "duration": 12,
+  "DU_number": 123697458,
+  "date_of_payment": {
+    "$date": {
+      "$numberLong": "1680998400000"
+    }
+  },
+  "approved": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6434eb1c162400e1128a0e31"
+  },
+  "roll": "19021A0571",
+  "email": "sandyblaze954@gmail.com",
+  "application_type": "bonafide",
+  "name": "Sandeep",
+  "purpose": "Job",
+  "duration": 6,
+  "DU_number": 6789000,
+  "date_of_payment": {
+    "$date": {
+      "$numberLong": "1681171200000"
+    }
+  },
+  "approved": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64377196fc8ad31c2170736e"
+  },
+  "roll": "19021A0517",
+  "email": "sandyblaze911@gmail.com",
+  "application_type": "bonafide",
+  "name": "Sandeep",
+  "purpose": "Job",
+  "duration": 6,
+  "DU_number": "DU471258",
+  "date_of_payment": {
+    "$date": {
+      "$numberLong": "1680393600000"
+    }
+  },
+  "approved": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64377629ef6d24567a7d3060"
+  },
+  "roll": "19021A0517",
+  "email": "sandyblaze911@gmail.com",
+  "application_type": "course_completion_certificate",
+  "name": "Sandeep",
+  "purpose": "Job",
+  "duration": 6,
+  "DU_number": "DU4712589",
+  "date_of_payment": {
+    "$date": {
+      "$numberLong": "1680825600000"
+    }
+  },
+  "approved": false,
+  "__v": 0
+}]

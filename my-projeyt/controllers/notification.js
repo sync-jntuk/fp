@@ -15,12 +15,13 @@ export default function NotificationController() {
                 return { ...e, errno: 404 }
             }
         },
-        postNotification: async function ({ year, branch, data }) {
+        postNotification: async function ({ year, branch, data, important }) {
             try {
                 const notifi = new notification({
                     year: year || 0,
                     branch: branch || 0,
-                    data: data
+                    data: data,
+                    important: important || false
                 })
                 const result = await notifi.save()
                 return result

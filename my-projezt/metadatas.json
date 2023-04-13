@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "6427c2a433714fe479e63017"
+  },
+  "key": "total_login_count",
+  "value": 288
+},{
+  "_id": {
+    "$oid": "6427c2ab33714fe479e63018"
+  },
+  "key": "total_queries_count",
+  "value": 260
+}]

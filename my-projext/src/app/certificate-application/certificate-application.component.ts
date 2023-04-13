@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../services/backend/backend.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-certificate-application',
@@ -35,10 +36,12 @@ export class CertificateApplicationComponent {
 		data.email = localStorage.getItem('email')
 		this.bk.post('/student/applyforcertificate', data).subscribe(response => {
 			if (response.errno != undefined) {
-				alert('certificate not valid')
+				Swal.fire('error while requesting', 'certificate is not valid', 'error')
 			} else {
-				alert('certificate requested successful')
-				this.router.navigateByUrl('/certificatestatus')
+				Swal.fire('success', 'Certificate request successfully', 'success')
+					.then(() => {
+						this.router.navigateByUrl('/certificatestatus')
+					})
 			}
 		})
 	}

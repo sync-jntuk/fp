@@ -1,0 +1,157 @@
+[{
+  "_id": {
+    "$oid": "641ec90fe67a6ee461f3ca3f"
+  },
+  "roll": "19021A0517",
+  "picture": "assets/img/uploaded_files\\158055_1681095903827.jpg",
+  "first_name": "sandy",
+  "last_name": "blaze",
+  "email": "sandyblaze911@gmail.com",
+  "passwd": "sandyblaze",
+  "regulation": "R19",
+  "batch": 2019,
+  "queries": {
+    "total": 129,
+    "monthly": 28
+  },
+  "logins": {
+    "total": 32,
+    "streak": 0
+  },
+  "last_active": "2023-03-25",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6428245b3b1550e2b3740c72"
+  },
+  "roll": "19021A0516",
+  "batch": 2019
+},{
+  "_id": {
+    "$oid": "643111025f388b4f22b529bd"
+  },
+  "roll": "19021A0515",
+  "picture": "images/default/profile.png",
+  "first_name": "mani",
+  "last_name": "kanta",
+  "email": "buddepu6026@gmail.com",
+  "passwd": "sandyblaze",
+  "regulation": "R19",
+  "batch": 2019,
+  "queries": {
+    "total": 105,
+    "monthly": 4
+  },
+  "logins": {
+    "total": 13,
+    "streak": 0
+  },
+  "last_active": "2023-03-25",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64311cd35f388b4f22b529bf"
+  },
+  "roll": "19021A0519",
+  "picture": "images/default/profile.png",
+  "first_name": "sameer",
+  "last_name": "mulla",
+  "email": "abdulsameermulla2001@gmail.com",
+  "passwd": "sandyblaze",
+  "regulation": "R19",
+  "batch": 2019,
+  "queries": {
+    "total": 105,
+    "monthly": 4
+  },
+  "logins": {
+    "total": 13,
+    "streak": 0
+  },
+  "last_active": "2023-03-25",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64311d2c5f388b4f22b529c0"
+  },
+  "roll": "19021A0510",
+  "picture": "images/default/profile.png",
+  "first_name": "akhilesh",
+  "last_name": "matta",
+  "email": "mattaakhilesh2002@gmail.com",
+  "passwd": "sandyblaze",
+  "regulation": "R19",
+  "batch": 2019,
+  "queries": {
+    "total": 105,
+    "monthly": 4
+  },
+  "logins": {
+    "total": 13,
+    "streak": 0
+  },
+  "last_active": "2023-03-25",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64311e385f388b4f22b529c4"
+  },
+  "roll": "19021A0548",
+  "picture": "images/default/profile.png",
+  "first_name": "vishnu",
+  "last_name": "gujjula",
+  "email": "vishnureddy8980@gmail.com",
+  "passwd": "sandyblaze",
+  "regulation": "R19",
+  "batch": 2019,
+  "queries": {
+    "total": 105,
+    "monthly": 4
+  },
+  "logins": {
+    "total": 13,
+    "streak": 0
+  },
+  "last_active": "2023-03-25",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6434e58dc1a3ce84dbce19e2"
+  },
+  "picture": "assets/img/uploaded_files\\158055_1681095903827.jpg",
+  "first_name": "Sandeep Kumar",
+  "last_name": "Bhaviri",
+  "passwd": "sandyblaze",
+  "regulation": "R19",
+  "batch": 2019,
+  "queries": {
+    "total": 130,
+    "monthly": 29
+  },
+  "logins": {
+    "total": 32,
+    "streak": 0
+  },
+  "last_active": "2023-03-25",
+  "__v": 0,
+  "roll": "19021A0571",
+  "email": "sandyblaze954@gmail.com"
+},{
+  "_id": {
+    "$oid": "64356f5012e18f038b5c44f8"
+  },
+  "roll": "19021A0572",
+  "picture": "images/default/profile.png",
+  "first_name": "sandy",
+  "last_name": "B",
+  "email": "sandeepkumarbhaviri@gmail.com",
+  "graduation_type": "Btech",
+  "passwd": "sandyblaze",
+  "regulation": "R19",
+  "batch": 2019,
+  "last_active": "2023-04-11",
+  "__v": 0,
+  "logins": {
+    "total": 1
+  }
+}]

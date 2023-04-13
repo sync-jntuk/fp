@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "641ef03de32d8a33056b0957"
+  },
+  "roll": "19021A0517",
+  "year": 1,
+  "semester": 1,
+  "batch": 2019,
+  "regulation": "R19",
+  "exam_type": "REG",
+  "challana": "914019280",
+  "subjects": {
+    "BS11T01": true,
+    "BS11T03": true,
+    "ES11T03": true,
+    "ES11T04": true,
+    "HS11T01": true,
+    "MC11T01": true,
+    "AC11P02": true,
+    "BS11P03": true,
+    "ES11P02": true,
+    "ES11P05": true,
+    "HS11P01": true
+  },
+  "checked": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64284403571db102ff9510b0"
+  },
+  "roll": "19021A0569",
+  "year": 1,
+  "semester": 1,
+  "batch": 2019,
+  "regulation": "R19",
+  "exam_type": "SUP",
+  "challana": "47851236",
+  "subjects": {
+    "BS11T01": true,
+    "BS11T03": true
+  },
+  "checked": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6428449bc245ebe89dce1b82"
+  },
+  "roll": "19021A0569",
+  "year": 2,
+  "semester": 1,
+  "batch": 2019,
+  "regulation": "R19",
+  "exam_type": "SUP",
+  "challana": "74411447",
+  "subjects": {
+    "ES2105T05": true,
+    "ES2105T06": true
+  },
+  "checked": false,
+  "__v": 0
+}]

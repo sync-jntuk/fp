@@ -38,7 +38,7 @@ const certificateApplicationSchema = new mongoose.Schema({
         enum: [6, 12, 18, 24],
     },
     DU_number: {
-        type: Number,
+        type: String,
         required: true,
     },
     date_of_payment: {

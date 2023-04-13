@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../services/backend/backend.service';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-notifications',
@@ -31,10 +32,13 @@ export class NotificationsComponent {
 		}
 		this.bk.post('/notification/post-one', formData).subscribe(data => {
 			if (data.errno != undefined) {
-				alert(`Notification is not uploaded`)
+				Swal.fire('error in uploaded', 'Notification is not uploaded', 'error')
 			} else {
 				console.log(data)
-				alert(`Notification is uploaded`)
+				Swal.fire('success upload', 'Notification is uploaded Successfully', 'success')
+					.then(() => {
+						location.reload()
+					})
 			}
 		})
 	}
