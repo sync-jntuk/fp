@@ -48,6 +48,11 @@ const semesterApplicationSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    receipt: {
+        type: String,
+        required: true,
+        default: '',
+    },
     subjects: {
         type: Object,
         default: {}
@@ -60,6 +65,6 @@ const semesterApplicationSchema = new mongoose.Schema({
 
 semesterApplicationSchema.index({ challana: 1 }, { unique: true })
 semesterApplicationSchema.index({ batch: 1, year: 1, semester: 1 ,checked: 1 })
-semesterApplicationSchema.index({ roll: 1, year: 1, semester: 1 }, { unique: true })
+semesterApplicationSchema.index({ roll: 1, year: 1, semester: 1, exam_type: 1 })
 
 export default mongoose.model("semesterApplication", semesterApplicationSchema)

@@ -1,39 +1,42 @@
-import multer from "multer"
-// import multerS3 from "multer-s3"
-// import aws from "aws-sdk"
+import dotenv from "dotenv"
+import S3 from "aws-sdk/clients/s3.js"
+dotenv.config()
 
-
-
-const storage = multer.diskStorage({
-    destination: function (req, file, callback) {
-        callback(null, './uploaded_files')
-    },
-    filename: function (req, file, callback) {
+export default async function s3Uploadv2(files, keys) {
+    const s3 = new S3({
+        // accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        // secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    })
+    const params = files.map((file, index) => {
         const ext = file.originalname.split('.').pop()
-        const file_name = Math.floor(100000 + Math.random() * 100000) + '_' + Date.now() + '.' + ext
-        // file.filename = req.body.email + "_profile." + ext
-        file.filename = file_name
-        callback(null, file.filename)
-    }
-})
-const upload = multer({ storage: storage }).single("file_to_upload")
+        return {
+            Bucket: process.env.AWS_BUCKET_NAME,
+            Key: 'upload/' + keys[index] + '.' + ext,
+            Body: file.buffer,
+        }
+    })
+    const results = await Promise.all(params.map(param => s3.upload(param).promise()))
+    return results
+}
 
-// const s3 = new aws.S3({
-//     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-//     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-// })
-// const upload = multer({
-//     storage: multerS3({
-//         s3: s3,
-//         bucket: process.env.AWS_BUCKET_NAME,
-//         acl: 'public-read',
-//         metadata: function (req, file, cb) {
-//             cb(null, { fieldname: file.fieldname })
-//         },
-//         key: function (req, file, cb) {
-//             cb(null, Math.floor(100000 + Math.random() * 100000) + '_' + Date.now())
-//         },
+
+// import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3"
+// export default async function s3Uploadv2(files, keys) {
+//     console.log('upload', 1)
+//     const s3Client = new S3Client({
+//         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+//         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 //     })
-// })
-
-export default upload
+//     console.log('upload', 2)
+//     const params = files.map((file, index) => {
+//         const ext = file.originalname.split('.').pop()
+//         return {
+//             Bucket: process.env.AWS_BUCKET_NAME,
+//             Key: 'upload/' + keys[index] + '.' + ext,
+//             Body: file.buffer,
+//             Region: process.env.AWS_REGION
+//         }
+//     })
+//     console.log('upload', 3)
+//     return s3Client.send(new PutObjectCommand(params[0]))
+// }

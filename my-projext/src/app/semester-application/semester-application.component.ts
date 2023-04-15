@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BackendService } from '../services/backend/backend.service';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-semester-application',
@@ -15,6 +16,7 @@ export class SemesterApplicationComponent {
 	year = ''
 	sem = ''
 	type = ''
+	challana = ''
 	subjects: any = []
 	user_data: any = {}
 
@@ -27,6 +29,7 @@ export class SemesterApplicationComponent {
 		}
 	}
 
+	loading: boolean = false
 	ngOnInit(): void {
 		this.user_data = localStorage.getItem("user_data")
 		if (!this.user_data) {
@@ -49,7 +52,18 @@ export class SemesterApplicationComponent {
 		})
 	}
 
+	formData: FormData = new FormData()
+	handleFileInput(event: any) {
+		const fileToUpload = event.target.files.item(0)
+		this.formData = new FormData()
+		this.formData.append('file_to_upload', fileToUpload)
+	}
+
 	applyForSemester(params: any) {
+		if (this.challana == '') {
+			Swal.fire('Enter DU number', 'Please enter DU number', 'warning')
+			return
+		}
 		params.subjects = {}
 		for (const key of Object.keys(params)) {
 			if (key.indexOf("code") == 0) {
@@ -61,17 +75,29 @@ export class SemesterApplicationComponent {
 			}
 		}
 		params.roll = this.roll
-		params.regulation = this.reg
+		params.regulation_ = this.reg
 		params.exam_type = 'REG'
 		params.batch = this.user_data.batch
+		params.challana = this.challana
 		console.log(params)
-		return
-		this.bk.post('/student/applyforsemester', params).subscribe(result => {
-			if (result.errno != undefined) {
-				alert('application not submitted')
-			} else {
-				alert('application submitted successfully')
-				console.log(result)
+		this.loading = true
+		this.formData.set('challana', this.challana)
+		this.bk.upload("/upload/exam-fee-receipt", this.formData).subscribe((event: any) => {
+			if (event.body) {
+				console.log(event.body.result[0].Location)
+				params.receipt = event.body.result[0].Location
+				this.bk.post('/student/applyforsemester', params).subscribe(result => {
+					console.log(result)
+					this.loading = false
+					if (result.errno != undefined) {
+						Swal.fire('status Failed', 'application submission failed', 'error')
+					} else {
+						Swal.fire('status success', 'application submission successfully', 'success')
+							.then(() => {
+								location.reload()
+							})
+					}
+				})
 			}
 		})
 	}

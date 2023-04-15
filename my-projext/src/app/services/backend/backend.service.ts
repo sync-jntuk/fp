@@ -24,16 +24,11 @@ export class BackendService {
 		return this.httpClient.post<any>(this._baseURL + url, data, config)
 	}
 
-	upload(url: string, data: FormData): Observable<any> {
-		const config = {
-			headers: new HttpHeaders()
-				.set('Content-Type', 'false')
-				.set('Access-Control-Allow-Origin', '*')
-				.set('Access-Control-Allow-Methods', 'POST'),
-			contentType: false,
-			processData: false,
-		}
-		return this.httpClient.post<any>(this._baseURL + url, data, config)
+	upload(url: string, formData: FormData): Observable<any> {
+		return this.httpClient.post<any>(this._baseURL + url, formData, {
+			reportProgress: true,
+			observe: 'events'
+		})
 	}
 
 }

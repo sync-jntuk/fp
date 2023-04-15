@@ -23,7 +23,7 @@ export class HeaderComponent {
 			this.router.navigateByUrl('/login')
 		}
 		this.user_data = JSON.parse(this.user_data)
-		this.user_data.picture = 'assets/img/' + this.user_data.picture.split("/")[2]
+		this.user_data.picture = this.user_data.picture
 	}
 
 	goToHome() {

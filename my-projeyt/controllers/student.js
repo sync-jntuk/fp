@@ -103,6 +103,16 @@ export default function StudentController() {
                 return { errno: 404, ...e }
             }
         },
+        uploadExamRecipt: async function ({ challana, receipt }) {
+            try {
+                const result = await semesterApplicaion.updateOne({ challana: challana }, {
+                    receipt: receipt
+                })
+                return result
+            } catch(e) {
+                return { errno: 404,...e }
+            }
+        },
         updatePasswd: async function ({ roll, passwd, npasswd }) {
             try {
                 const result = await student.updateOne({ roll: roll, passwd: passwd }, { passwd: npasswd })
@@ -140,7 +150,7 @@ export default function StudentController() {
                 return { errno: 404, ...e }
             }
         },
-        applyForSemester: async function ({ roll, year, semester, batch, regulation_, exam_type, challana, subjects }) {
+        applyForSemester: async function ({ roll, year, semester, batch, regulation_, exam_type, challana, subjects, receipt }) {
             try {
                 const application = new semesterApplicaion({
                     roll: roll,
@@ -150,7 +160,8 @@ export default function StudentController() {
                     regulation: regulation_,
                     exam_type: exam_type,
                     challana: challana,
-                    subjects: subjects
+                    subjects: subjects,
+                    receipt: receipt
                 })
                 const result = await application.save()
                 return result

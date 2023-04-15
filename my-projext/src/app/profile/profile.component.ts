@@ -16,6 +16,7 @@ export class ProfileComponent {
 	constructor(private router: Router, private bk: BackendService, private upload: UploadService) { }
 
 	user_data: any = null
+	loading: boolean = false
 
 	class_name: String = ''
 	changeClass() {
@@ -72,10 +73,13 @@ export class ProfileComponent {
 	}
 
 	uploadFile() {
-		this.upload.uploadFile('/upload/profile-picture', this.formData).subscribe((event: any) => {
+		this.loading = true
+		this.bk.upload('/upload/profile-picture', this.formData).subscribe((event: any) => {
 			if (event.body) {
 				this.user_data.picture = event.body.path
 				localStorage.setItem('user_data', JSON.stringify(this.user_data))
+				console.log(event.body)
+				this.loading = false
 			}
 		});
 	}

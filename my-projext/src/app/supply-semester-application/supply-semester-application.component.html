@@ -1,3 +1,5 @@
+<ngx-loading [show]="loading"></ngx-loading>
+
 <body class="{{class_name}}">
 	<app-header (toggleEvent)="changeClass()"></app-header>
 
@@ -84,10 +86,11 @@
 											</div>
 										</div>
 										<div class="form-outline mb-4">
-											<label class="form-label" for="challana">Challana Number</label>
-											<input type="text" id="challana" ngModel name="challana"
+											<label class="form-label" for="challana">DU Number</label>
+											<input type="text" id="challana" [(ngModel)]="challana" name="challana"
 												class="form-control form-control-lg" />
 										</div>
+										<input class="btn mb-3" type="file" #fileInput (change)="handleFileInput($event)">
 										<div class="d-flex justify-content-center">
 											<input type="submit" class="btn btn-primary btn-block mb-4"
 												value="Submit" />
