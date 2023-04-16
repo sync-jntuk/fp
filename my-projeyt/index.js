@@ -17,7 +17,9 @@ const app = express()
 const PORT = process.env.PORT || config.get('server.port')
 const HOST = process.env.HOST || config.get('server.host')
 const MONGO = process.env.MONGO || config.get('mongo.url')
-app.use(cors())
+app.use(cors({
+    origin: "*"
+}))
 app.use(express.json())
 app.set('view engine', 'ejs')
 
