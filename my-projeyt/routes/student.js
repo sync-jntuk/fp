@@ -44,9 +44,19 @@ app.route('/applyforcertificate')
         res.status(200).json(await studentController.applyForCertificates(req.body))
     })
 
+app.route('/applyforrevaluation')
+    .post(async (req, res) => {
+        res.status(200).json(await studentController.applyForRevaluation(req.body))
+    })
+
 app.route('/get-certificate-status')
     .post(async (req, res) => {
         res.status(200).json(await studentController.getCertificateStatus(req.body))
+    })
+
+app.route('/get-hallticket')
+    .post(async (req, res) => {
+        res.status(200).json(await studentController.getHallticket(req.body))
     })
 
 app.route('/metadata')

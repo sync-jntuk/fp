@@ -17,6 +17,8 @@ import { SupplySemesterApplicationComponent } from './supply-semester-applicatio
 import { CertificateApplicationComponent } from './certificate-application/certificate-application.component';
 import { CertificateStatusComponent } from './certificate-status/certificate-status.component';
 import { VerifyEmailComponent } from './verify.email/verify.email.component';
+import { HallticketDownloadComponent } from './hallticket.download/hallticket.download.component';
+import { RevaluationComponent } from './revaluation/revaluation.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: "/home", pathMatch: "full" },
@@ -35,8 +37,10 @@ const routes: Routes = [
 	{ path: 'map', component: MapComponent },
 	{ path: 'payment', component: PaymentComponent },
 	{ path: 'payment-status', component: PaymentStatusComponent },
-    { path: 'error-404', component: Error404Component },
-	{ path: 'activate', component: VerifyEmailComponent }
+	{ path: 'error-404', component: Error404Component },
+	{ path: 'activate', component: VerifyEmailComponent },
+	{ path: 'downloadhallticket', component: HallticketDownloadComponent },
+	{ path: 'applyrevaluation', component: RevaluationComponent }
 ];
 
 @NgModule({

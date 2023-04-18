@@ -3,6 +3,7 @@ import regulation from "../models/regulation.js"
 import examResult from "../models/examResult.js"
 import semesterApplicaion from "../models/semesterApplication.js"
 import certificateApplication from "../models/cerificationAppliction.js"
+import revalutionApplication from "../models/revalutionApplication.js"
 import metaData from "../models/metaData.js"
 import sendMail from "../utility_modules/mailHandler.js"
 import jwt from "jsonwebtoken"
@@ -109,8 +110,8 @@ export default function StudentController() {
                     receipt: receipt
                 })
                 return result
-            } catch(e) {
-                return { errno: 404,...e }
+            } catch (e) {
+                return { errno: 404, ...e }
             }
         },
         updatePasswd: async function ({ roll, passwd, npasswd }) {
@@ -169,7 +170,22 @@ export default function StudentController() {
                 return { errno: 403, ...e }
             }
         },
-        applyForCertificates: async function ({ roll, email, application_type, name, purpose, duration, DU_number, date_of_payment }) {
+        applyForRevaluation: async function ({ roll, year, semester, batch, regulation_, DU_number, subjects, receipt }) {
+            try {
+                const reval = new revalutionApplication({
+                    roll: roll, year: year, semester: semester,
+                    regulation: regulation_,
+                    batch: batch,
+                    DU_number: DU_number, subjects: subjects,
+                    receipt: receipt
+                })
+                const result = await reval.save()
+                return result
+            } catch (e) {
+                return { errno: 403, ...e }
+            }
+        },
+        applyForCertificates: async function ({ roll, email, application_type, name, purpose, duration, DU_number, date_of_payment, receipt }) {
             try {
                 const certificate = new certificateApplication({
                     roll: roll,
@@ -179,7 +195,8 @@ export default function StudentController() {
                     purpose: purpose,
                     duration: duration,
                     DU_number: DU_number,
-                    date_of_payment: date_of_payment
+                    date_of_payment: date_of_payment,
+                    receipt: receipt
                 })
                 const result = await certificate.save()
                 return result
@@ -191,6 +208,27 @@ export default function StudentController() {
             try {
                 const result = await certificateApplication.find({ roll: roll })
                 return result
+            } catch (e) {
+                return { errno: 404, ...e }
+            }
+        },
+        getHallticket: async function ({ roll, exam_type }) {
+            try {
+                const result = await semesterApplicaion.aggregate([
+                    {
+                        $match: {
+                            roll: roll,
+                            checked: false,
+                            exam_type: exam_type
+                        }
+                    },
+                    {
+                        $sort: {
+                            year: 1, semester: 1
+                        }
+                    }
+                ])
+                return result[result.length - 1]
             } catch (e) {
                 return { errno: 404, ...e }
             }

@@ -13,6 +13,7 @@ export class CertificateApplicationComponent {
 	constructor(private router: Router, private bk: BackendService) { }
 
 	roll: String = ''
+	DU_number = ''
 
 	class_name: String = ''
 	changeClass() {
@@ -42,6 +43,27 @@ export class CertificateApplicationComponent {
 					.then(() => {
 						this.router.navigateByUrl('/certificatestatus')
 					})
+			}
+		})
+	}
+
+	formData: FormData = new FormData()
+	handleFileInput(event: any) {
+		const fileToUpload = event.target.files.item(0)
+		this.formData = new FormData()
+		this.formData.append('file_to_upload', fileToUpload)
+	}
+
+	uploadReceipt(params: any) {
+		if (this.DU_number == '') {
+			Swal.fire('Enter DU number', 'Please enter DU number', 'warning')
+			return
+		}
+		this.formData.set('DU_number', this.DU_number)
+		this.bk.upload("/upload/certificate-receipt", this.formData).subscribe((event: any) => {
+			if (event.body) {
+				params.receipt = event.body.result[0].Location
+				this.submitCertificate(params)
 			}
 		})
 	}

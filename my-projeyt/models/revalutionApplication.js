@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const semesterApplicationSchema = new mongoose.Schema({
+const revaluationApplicationSchema = new mongoose.Schema({
     roll: {
         type: String,
         required: true,
@@ -39,12 +39,7 @@ const semesterApplicationSchema = new mongoose.Schema({
             },
         },
     },
-    exam_type: {
-        type: String,
-        required: true,
-        enum: ['REG', 'SUP'],
-    },
-    challana: {
+    DU_number: {
         type: String,
         required: true,
     },
@@ -67,8 +62,8 @@ const semesterApplicationSchema = new mongoose.Schema({
     }
 })
 
-semesterApplicationSchema.index({ challana: 1 }, { unique: true })
-semesterApplicationSchema.index({ batch: 1, year: 1, semester: 1 ,checked: 1 })
-semesterApplicationSchema.index({ roll: 1, year: 1, semester: 1, exam_type: 1 })
+revaluationApplicationSchema.index({ DU_number: 1 }, { unique: true })
+revaluationApplicationSchema.index({ batch: 1, year: 1, semester: 1, checked: 1 })
+revaluationApplicationSchema.index({ roll: 1, year: 1, semester: 1, exam_type: 1 })
 
-export default mongoose.model("semesterApplication", semesterApplicationSchema)
+export default mongoose.model("revaluationApplication", revaluationApplicationSchema)

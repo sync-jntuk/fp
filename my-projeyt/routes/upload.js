@@ -28,6 +28,28 @@ app.route('/exam-fee-receipt')
         }
     })
 
+app.route('/revaluation-receipt')
+    .post(uploadStorage.array('file_to_upload'), async (req, res) => {
+        try {
+            const { DU_number } = req.body
+            const result = await s3Uploadv2(req.files, [`${DU_number}-revaluation-receipt`])
+            res.status(200).json({ status: "success", result })
+        } catch (err) {
+            res.status(200).json({ errno: 500 })
+        }
+    })
+
+app.route('/certificate-receipt')
+    .post(uploadStorage.array('file_to_upload'), async (req, res) => {
+        try {
+            const { DU_number } = req.body
+            const result = await s3Uploadv2(req.files, [`${DU_number}-certificate-receipt`])
+            res.status(200).json({ status: "success", result })
+        } catch (err) {
+            res.status(200).json({ errno: 500 })
+        }
+    })
+
 app.route('/profile-picture')
     .post(uploadStorage.array('file_to_upload'), async (req, res) => {
         try {

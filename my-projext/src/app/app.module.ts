@@ -26,6 +26,8 @@ import { CertificateApplicationComponent } from './certificate-application/certi
 import { CertificateStatusComponent } from './certificate-status/certificate-status.component';
 import { NgxLoadingModule } from 'ngx-loading';
 import { VerifyEmailComponent } from './verify.email/verify.email.component';
+import { HallticketDownloadComponent } from './hallticket.download/hallticket.download.component';
+import { RevaluationComponent } from './revaluation/revaluation.component';
 
 @NgModule({
 	declarations: [
@@ -50,6 +52,8 @@ import { VerifyEmailComponent } from './verify.email/verify.email.component';
 		CertificateApplicationComponent,
 		CertificateStatusComponent,
   VerifyEmailComponent,
+  HallticketDownloadComponent,
+  RevaluationComponent,
 	],
 	imports: [
 		BrowserModule,

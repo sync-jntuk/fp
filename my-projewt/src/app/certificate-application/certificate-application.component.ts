@@ -13,11 +13,24 @@ export class CertificateApplicationComponent {
 
 	email: String = ''
 	certifcates: any = []
+	img_src: string = ''
+	show_img: boolean = false
+	flag: boolean = true
 
 	getCertificates() {
 		this.bk.post('/admin/certificate-applications', { approved: false }).subscribe(response => {
 			this.certifcates = response
+			console.log(response)
 		})
+	}
+
+	view(img_src: string) {
+		this.img_src = img_src
+		this.show_img = true
+		this.flag = false
+		setTimeout(() => {
+			this.flag = true
+		}, 500)
 	}
 
 	class_name: String = ''
@@ -30,6 +43,12 @@ export class CertificateApplicationComponent {
 	}
 
 	ngOnInit() {
+		document.addEventListener('click', () => {
+			if (this.flag) {
+				this.show_img = false
+				this.img_src = ''
+			}
+		})
 		this.email = localStorage.getItem('email') || ''
 		if (!this.email) {
 			this.router.navigateByUrl('/login')

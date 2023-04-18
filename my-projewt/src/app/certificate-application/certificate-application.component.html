@@ -1,3 +1,14 @@
+<div *ngIf="show_img" class="pop-img">
+	<div class="text-center">
+		<div *ngIf="img_src" class="popImg">
+			<img [src]="img_src" alt="" class="text-center">
+		</div>
+		<div *ngIf="!img_src" class="p-5 noPopImg">
+			<h1>Receipt Not Found</h1>
+		</div>
+	</div>
+</div>
+
 <body class="{{class_name}}">
 	<app-header (toggleEvent)="changeClass()"></app-header>
 
@@ -7,7 +18,7 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>Semester Applications</h1>
+			<h1>Certificate Applications</h1>
 		</div><!-- End Page Title -->
 
 		<section class="light">
@@ -21,6 +32,7 @@
 						<th scope="col">{{'Duration in Months'}}</th>
 						<th scope="col">{{'DU Number'}}</th>
 						<th scope="col">{{'Date of Payment'}}</th>
+						<th scope="col">{{'Receipt'}}</th>
 						<th scope="col">{{'Status'}}</th>
 					</tr>
 				</thead>
@@ -34,7 +46,11 @@
 						<td class="middle">{{ cert.DU_number }}</td>
 						<td class="middle">{{ cert.date_of_payment.split('T')[0] }}</td>
 						<td class="middle">
-							<button class="btn btn-primary" (click)="approveApplications(cert.roll, cert.DU_number, cert.application_type)">Approve</button>
+							<button class="btn btn-warning" (click)="view(cert.receipt)">View</button>
+						</td>
+						<td class="middle">
+							<button class="btn btn-primary"
+								(click)="approveApplications(cert.roll, cert.DU_number, cert.application_type)">Approve</button>
 						</td>
 					</tr>
 				</tbody>

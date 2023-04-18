@@ -37,6 +37,10 @@ const certificateApplicationSchema = new mongoose.Schema({
         required: true,
         enum: [6, 12, 18, 24],
     },
+    receipt: {
+        type: String,
+        required: true,
+    },
     DU_number: {
         type: String,
         required: true,

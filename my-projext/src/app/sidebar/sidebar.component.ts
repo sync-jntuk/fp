@@ -37,6 +37,14 @@ export class SidebarComponent {
 		this.router.navigateByUrl('/result')
 	}
 
+	goToHallTicket() {
+		this.router.navigateByUrl('/downloadhallticket')
+	}
+
+	goToRevaluation() {
+		this.router.navigateByUrl('/applyrevaluation')
+	}
+
 	goToCertificateStatus() {
 		this.router.navigateByUrl('/certificatestatus')
 	}
