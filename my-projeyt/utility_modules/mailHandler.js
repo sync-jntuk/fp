@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer'
 
 const staticMessages = {
     register: function ({ name, token }) {
-        const host_url = 'http://localhost:4200/activate?id='
+        const host_url = 'http://ucekacademics.s3-website-us-east-1.amazonaws.com/activate?id='
         return `
             <div>
                 <h1>Greetings from UCEK ACADEMICS</h1>
@@ -10,7 +10,7 @@ const staticMessages = {
                 <p>Thanks for registering into ucek acadimics portal</p>
                 <p>To activate your account click on below link within 24 hours</p>
                 <center>
-                    <button style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align:center;text-decoration: none;display: inline-block;font-size: 16px;">
+                    <button style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align:center;text-decoration: none;display: inline-block;font-size: 16px; margin-top: 20px">
                         <a href="${host_url + token}" style="text-decoration: none;color:#ffffff">Click to Activate</a>
                     </button>
                 </center>
