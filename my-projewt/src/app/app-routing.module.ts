@@ -13,15 +13,16 @@ import { UploadSupplyResultsComponent } from './upload.supply-results/upload.sup
 import { ProfileComponent } from './profile/profile.component';
 import { UploadResultsCsvComponent } from './upload.results.csv/upload.results.csv.component';
 import { CertificateApplicationComponent } from './certificate-application/certificate-application.component';
+import { RevaluationApplicationsComponent } from './revaluation-applications/revaluation-applications.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: "/home", pathMatch: 'full'},
+	{ path: '', redirectTo: "/home", pathMatch: 'full' },
 	{ path: "home", component: HomeComponent },
 	{ path: "login", component: LoginComponent },
 	{ path: "profile", component: ProfileComponent },
 	{ path: "upload-notifications", component: NotificationsComponent },
-	{ path: "delete-notifications", component: DeleteNotificationComponent},
-	{ path: "update-regulation", component: UpdateRegulationComponent},
+	{ path: "delete-notifications", component: DeleteNotificationComponent },
+	{ path: "update-regulation", component: UpdateRegulationComponent },
 	{ path: "upload-results", component: UploadResultsComponent },
 	{ path: "upload-results-csv", component: UploadResultsCsvComponent },
 	{ path: "upload-supplyresults", component: UploadSupplyResultsComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
 	{ path: "semester-application", component: SemesterApplicationComponent },
 	{ path: "semester-supply-application", component: SupplySemesterApplicationComponent },
 	{ path: "certificate-application", component: CertificateApplicationComponent },
+	{ path: "revaluation-applications", component: RevaluationApplicationsComponent }
 ];
 
 @NgModule({

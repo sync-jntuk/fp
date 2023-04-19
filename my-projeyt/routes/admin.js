@@ -12,6 +12,11 @@ app.route('/login')
         res.status(200).json(await adminController.login(req.body))
     })
 
+app.route('/get-student-details')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.getStudentDetails(req.body))
+    })
+
 app.route('/add-regulation')
    .post(async (req, res) => {
        res.status(200).json(await regulationController.updateRegulation(req.body))
@@ -50,6 +55,16 @@ app.route('/certificate-applications')
 app.route('/approve-certificate-application')
     .post(async (req, res) => {
         res.status(200).json(await adminController.approveCertifate(req.body))
+    })
+
+app.route('/revaluation-application')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.getRevaluationCertificates(req.body))
+    })
+
+app.route('/approve-revaluation-application')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.approveRevaluationCertificate(req.body))
     })
 
 app.route('/send-result')

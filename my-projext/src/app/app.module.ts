@@ -51,9 +51,9 @@ import { RevaluationComponent } from './revaluation/revaluation.component';
 		SupplySemesterApplicationComponent,
 		CertificateApplicationComponent,
 		CertificateStatusComponent,
-  VerifyEmailComponent,
-  HallticketDownloadComponent,
-  RevaluationComponent,
+		VerifyEmailComponent,
+		HallticketDownloadComponent,
+		RevaluationComponent,
 	],
 	imports: [
 		BrowserModule,

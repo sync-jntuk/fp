@@ -4,6 +4,7 @@ import student from "../models/student.js"
 import metaData from "../models/metaData.js"
 import semesterApplication from "../models/semesterApplication.js"
 import certificateApplication from "../models/cerificationAppliction.js"
+import revalutionApplication from "../models/revalutionApplication.js"
 import sendMail from "../utility_modules/mailHandler.js"
 import StudentController from "./student.js"
 
@@ -52,6 +53,14 @@ export default function AdminController() {
                 return { errno: 404, ...e }
             }
         },
+        getStudentDetails: async function ({ roll }) {
+            try {
+                const result = await student.findOne({ roll: roll })
+                return result
+            } catch (e) {
+                return { errno: 404, ...e }
+            }
+        },
         uploadResult: async function ({ roll, semester, year, subjects }) {
             let sub = {}
             for (const [k, v] of Object.entries(subjects)) {
@@ -59,15 +68,29 @@ export default function AdminController() {
             }
             try {
                 const stud = await student.findOne({ roll: roll })
-                const examRes = new examResult({
-                    roll: roll,
-                    semester: semester,
-                    year: year,
-                    subjects: sub,
-                    batch: stud.batch
-                })
-                const result = await examRes.save()
-                return result
+                const p_data = await examResult.findOne({ roll: roll, semester: semester, year: year })
+                if (!p_data) {
+                    const examRes = new examResult({
+                        roll: roll,
+                        semester: semester,
+                        year: year,
+                        subjects: sub,
+                        batch: stud.batch
+                    })
+                    const result = await examRes.save()
+                    return result
+                } else {
+                    const p_sub = JSON.parse(JSON.stringify(p_data.subjects))
+                    const result = await examResult.updateOne({ roll: roll, semester: semester, year: year }, {
+                        $set: {
+                            subjects: {
+                                ...p_sub,
+                                ...sub
+                            }
+                        }
+                    })
+                    return result
+                }
             } catch (e) {
                 return { errno: 404, ...e }
             }
@@ -135,6 +158,26 @@ export default function AdminController() {
                     }
                 })
                 return results
+            } catch (e) {
+                return { errno: 404, ...e }
+            }
+        },
+        getRevaluationCertificates: async function () {
+            try {
+                const result = await revalutionApplication.find({ checked: false })
+                return result
+            } catch (e) {
+                return { errno: 404, ...e }
+            }
+        },
+        approveRevaluationCertificate: async function ({ roll, DU_number }) {
+            try {
+                const result = await revalutionApplication.updateOne({ roll: roll, DU_number: DU_number }, {
+                    $set: {
+                        checked: true
+                    }
+                })
+                return result
             } catch (e) {
                 return { errno: 404, ...e }
             }

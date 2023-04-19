@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
 const metaDataScheme = new mongoose.Schema({
     key: {
@@ -6,7 +6,7 @@ const metaDataScheme = new mongoose.Schema({
         required: true
     },
     value: {
-        type: String,
+        type: Schema.Types.Mixed,
         required: true
     },
 })

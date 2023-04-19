@@ -37,7 +37,7 @@ export default function StudentController() {
                 return { errno: 404, ...e }
             }
         },
-        register: async function ({ roll, first_name, last_name, email, passwd, regulation, batch, graduation_type }) {
+        register: async function ({ roll, first_name, last_name, email, passwd, regulation, batch, graduation_type, father_name }) {
             try {
                 const join_year = {
                     'Btech': 4,
@@ -49,6 +49,7 @@ export default function StudentController() {
                     last_name: last_name,
                     email: email,
                     graduation_type: graduation_type,
+                    father_name: father_name,
                     passwd: passwd,
                     regulation: regulation,
                     batch: batch - join_year[graduation_type],

@@ -61,6 +61,10 @@ export class SidebarComponent {
 		this.router.navigateByUrl('/semester-supply-application')
 	}
 
+	goToRevaluationApplication() {
+		this.router.navigateByUrl('/revaluation-applications')
+	}
+
 	goToSupplyCertificateApplication() {
 		this.router.navigateByUrl('/certificate-application')
 	}

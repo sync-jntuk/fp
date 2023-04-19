@@ -22,6 +22,7 @@ import { SupplySemesterApplicationComponent } from './supply-semester-applicatio
 import { ProfileComponent } from './profile/profile.component';
 import { UploadResultsCsvComponent } from './upload.results.csv/upload.results.csv.component';
 import { CertificateApplicationComponent } from './certificate-application/certificate-application.component';
+import { RevaluationApplicationsComponent } from './revaluation-applications/revaluation-applications.component';
 
 @NgModule({
 	declarations: [
@@ -41,7 +42,8 @@ import { CertificateApplicationComponent } from './certificate-application/certi
 		SupplySemesterApplicationComponent,
 		ProfileComponent,
 		UploadResultsCsvComponent,
-		CertificateApplicationComponent
+		CertificateApplicationComponent,
+		RevaluationApplicationsComponent
 	],
 	imports: [
 		BrowserModule,

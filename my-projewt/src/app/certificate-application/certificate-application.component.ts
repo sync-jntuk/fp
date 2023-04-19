@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { BackendService } from '../services/backend/backend.service';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-certificate-application',
@@ -20,6 +21,9 @@ export class CertificateApplicationComponent {
 	flag: boolean = true
 	today_date = ''
 	metadata: any = {}
+	student_data: any = {}
+	show_doc: boolean = false
+	certs: any = [false, false, false]
 
 	getCertificates() {
 		this.bk.post('/admin/certificate-applications', { approved: false }).subscribe(response => {
@@ -35,6 +39,31 @@ export class CertificateApplicationComponent {
 		setTimeout(() => {
 			this.flag = true
 		}, 500)
+	}
+
+	printView(roll: string, application_type: string, duration: string, purpose: string) {
+		this.show_doc = false
+		this.certs = [false, false, false]
+		if (application_type == 'bonafide') {
+			this.certs[0] = true
+		} else if (application_type == 'custodian') {
+			this.certs[1] = true
+		} else if (application_type == 'course_completion_certificate') {
+			this.certs[2] = true
+		} else {
+			return
+		}
+		this.bk.post('/admin/get-student-details', { roll: roll }).subscribe(data => {
+			if (data.errno != undefined) {
+				Swal.fire('error', 'No student details', 'error')
+				return
+			}
+			data.purpose = purpose
+			data.duration = duration
+			data.application_type = application_type.split('_').join(' ')
+			this.student_data = data
+			this.show_doc = true
+		})
 	}
 
 	class_name: String = ''
@@ -92,7 +121,14 @@ export class CertificateApplicationComponent {
 	}
 
 	downloadPdf() {
-		const context = document.getElementById('certificate')
+		let index = -1
+		for (const [i, bool] of this.certs.entries()) {
+			if (bool) {
+				index = i
+				break
+			}
+		}
+		const context = document.getElementById('certificate-' + index)
 		if (!context) {
 			console.error('Element not found!')
 			return

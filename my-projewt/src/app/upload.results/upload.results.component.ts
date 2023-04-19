@@ -58,8 +58,7 @@ export class UploadResultsComponent {
 		let subjects: Record<string, any> = {}
 		for (const [k, v] of Object.entries(formData)) {
 			if (v == "") {
-				alert("Please enter all subject grades.")
-				return
+				continue
 			}
 			subjects[k] = v
 		}

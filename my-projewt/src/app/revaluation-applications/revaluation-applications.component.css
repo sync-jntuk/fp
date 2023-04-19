@@ -17,19 +17,3 @@
 .popImg img {
 	width: 700px;
 }
-
-.certificate .sub-cert {
-	width: 21cm;
-	height: 29.7cm;
-	margin: 0 auto;
-	padding: 70px;
-	border: 1px solid #000;
-}
-
-.certificate * {
-	font-family: "Times New Roman", Times, serif;
-}
-
-.mdata {
-	margin: 0px;
-}

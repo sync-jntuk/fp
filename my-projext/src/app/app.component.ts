@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-	title = 'my-projext'
+	title = 'UCEK Academics'
 	constructor() { }
 
 	ngOnInit() {
