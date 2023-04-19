@@ -1,6 +1,7 @@
 import admin from "../models/admin.js"
 import examResult from "../models/examResult.js"
 import student from "../models/student.js"
+import metaData from "../models/metaData.js"
 import semesterApplication from "../models/semesterApplication.js"
 import certificateApplication from "../models/cerificationAppliction.js"
 import sendMail from "../utility_modules/mailHandler.js"
@@ -194,6 +195,14 @@ export default function AdminController() {
                 } catch (e) { }
             }
             return { message: "mails sent" }
+        },
+        getMetaData: async function () {
+            try {
+                const result = await metaData.find()
+                return result
+            } catch (e) {
+                return { errno: 404, ...e }
+            }
         }
     }
 }

@@ -218,7 +218,7 @@ export default function StudentController() {
                     {
                         $match: {
                             roll: roll,
-                            checked: false,
+                            checked: true,
                             exam_type: exam_type
                         }
                     },

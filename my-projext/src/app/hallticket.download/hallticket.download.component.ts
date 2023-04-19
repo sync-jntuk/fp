@@ -22,13 +22,57 @@ export class HallticketDownloadComponent {
 		}
 	}
 
+	user_data: any = {}
+	hallticket_data: any = {}
+	roll_array: any = []
+
 	ngOnInit(): void {
 		this.getHallticket()
+		this.roll_array = localStorage.getItem('roll')?.split('')
 	}
 
+	year_map: Record<number, any> = {
+		0: "None",
+		1: "I", 2: "II", 3: "III", 4: "IV"
+	}
+
+	branch_map: Record<string, any> = {
+		'01': 'Civil Engineering',
+		'02': 'Electrical and Electronic Engineering',
+		'03': 'Mechanical Engineering',
+		'04': 'Electronic and Communication Engineering',
+		'05': 'Computer Science and Engineering',
+		'06': 'Chemical Engineering',
+		'07': 'Petrolum Engineering',
+	}
+
+	labs: any = []
+	theory: any = []
+	subjects: any = []
+	sub_map: any = {}
+
 	getHallticket() {
-		this.bk.post('/student/get-hallticket', { roll: localStorage.getItem('roll'), exam_type: 'SUP' }).subscribe(data => {
+		this.bk.post('/student/get-hallticket', { roll: localStorage.getItem('roll'), exam_type: 'REG' }).subscribe(data => {
 			console.log(data)
+			this.user_data = JSON.parse(localStorage.getItem('user_data') || '')
+			this.hallticket_data = data
+			this.subjects = Object.entries(this.hallticket_data.subjects).map(x => x[0])
+			this.bk.post('/regulation/subjects', {
+				year: data.year,
+				semester: data.semester,
+				regulation_: localStorage.getItem('regulation')
+			}).subscribe(dt => {
+				this.theory = []
+				this.labs = []
+				this.sub_map = dt.subjects
+				for (const subject of this.subjects) {
+					if (this.sub_map[subject].name.toLowerCase().split(' ').includes('lab')) {
+						this.labs.push(this.sub_map[subject].name)
+					} else {
+						this.theory.push(this.sub_map[subject].name)
+					}
+				}
+			})
 		})
 	}
 

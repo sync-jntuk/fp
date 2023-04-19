@@ -62,5 +62,10 @@ app.route('/send-results')
         res.status(200).json(await adminController.sendAllResults(req.body))
     })
 
+app.route('/metadata')
+    .post(async (req, res) => {
+        res.status(200).json(await adminController.getMetaData())
+    })
+
 const admin = app
 export default admin
